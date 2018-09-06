@@ -41,6 +41,18 @@ import {HttpClientModule} from '@angular/common/http';
       {
         path: 'shopping-cart',
         component: ShoppingCartComponent
+      },
+      {
+        path: 'dishes/pizza',
+        component: DishesComponent
+      },
+      {
+        path: 'dishes/pasta',
+        component: DishesComponent
+      },
+      {
+        path: 'dishes/drink',
+        component: DishesComponent
       }
     ])
   ],
