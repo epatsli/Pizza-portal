@@ -53,7 +53,7 @@ export class ShoppingCartService {
     this.totalPrice -= parseFloat((dish.price * 100 / 100).toFixed(2));
   }
 
-  getCost(): number {
+  getTotalPrice(): number {
     return this.totalPrice;
   }
 }
