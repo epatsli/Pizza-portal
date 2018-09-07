@@ -1,3 +1,33 @@
 <p>
   shopping-cart works!
 </p>
+
+
+<div class="header">Your order</div>
+
+<div class="products">Products:</div>
+
+<table>
+
+  <tr>
+    <th>Name:</th>
+    <th>Price:</th>
+    <th>Count:</th>
+  </tr>
+
+  <tr *ngFor="let dish of shoppingCartService.getDishes()">
+    <td>{{dish.name}}</td>
+    <td>{{dish.price}}</td>
+    <td></td>
+    <button class="buttonDel" (click)="shoppingCartService.delete(dish)"> - </button>
+  </tr>
+
+
+</table>
+<div class="title">Total price:</div>
+
+
+
+<div class="positionButton">
+  <button class="summary">Summary</button>
+</div>

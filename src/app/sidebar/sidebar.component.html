@@ -3,11 +3,6 @@
 
 <div class="products">Products:</div>
 
-
-<li *ngFor="let dish of dishes | async as dishes; index as i; first as isFirst">
-  {{i}}/{{dish.length}}. {{dishes}} <span *ngIf="isFirst">default</span>
-</li>
-
 <table>
 
   <tr>
@@ -16,7 +11,7 @@
     <th>Count:</th>
   </tr>
 
-  <tr *ngFor="let dish of dishes">
+  <tr *ngFor="let dish of orderService.getDishes()">
     <td>{{dish.name}}</td>
     <td>{{dish.price}}</td>
     <td></td>

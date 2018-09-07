@@ -3,12 +3,13 @@ import {Dishes} from '../models/dishes.model';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
+import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DishesService {
-
   constructor(
     readonly http: HttpClient,
   ) {
@@ -34,4 +35,5 @@ export class DishesService {
       map(x => x.filter(y => y.isAvailable && y.type === 'fastfood'))
     );
   }
+
 }

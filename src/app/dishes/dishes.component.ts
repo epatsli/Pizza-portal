@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DishesService} from './dishes.service';
 import {Dishes} from '../models/dishes.model';
 import {ActivatedRoute} from '@angular/router';
-import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
+import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 
 
 @Component({
@@ -14,11 +14,10 @@ export class DishesComponent implements OnInit {
   dishes: Dishes[] = [];
   value = 0;
 
-
   constructor(
+    private shoppingcartservice: ShoppingCartService,
     private dishesService: DishesService,
     private router: ActivatedRoute,
- //   public shoppingcartcomponent: ShoppingCartComponent,
   ) {}
 
   ngOnInit() {
@@ -70,10 +69,9 @@ export class DishesComponent implements OnInit {
         console.log(res);
       });
   }
-
   addDishToOrder(dish: Dishes) {
     this.value++;
-   // this.shoppingcartcomponent.addToShoppingCart(dish);
     console.log(this.value);
+    this.shoppingcartservice.addDishToOrder(dish);
   }
 }
