@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { DishesComponent } from './dishes/dishes.component';
 import {HttpClientModule} from '@angular/common/http';
+import {AuthService} from './auth.service';
 
 @NgModule({
   declarations: [

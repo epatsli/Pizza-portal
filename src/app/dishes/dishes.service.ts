@@ -24,7 +24,7 @@ export class DishesService {
       map(x => x.filter(y => y.isAvailable && y.type === 'pizza'))
     );
   }
-  getSpagetti(): Observable<Dishes[]> {
+  getPasta(): Observable<Dishes[]> {
     return this.http.get<Dishes[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'spagetti'))
     );

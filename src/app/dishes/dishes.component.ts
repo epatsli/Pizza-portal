@@ -15,10 +15,10 @@ export class DishesComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.getDishes();
+     // this.getDishes();
      this.getPizza();
-     this.getSpagetti();
-    this.getDrinks();
+    // this.getPasta();
+    // this.getDrinks();
   }
 
   getDishes(): void {
@@ -36,8 +36,8 @@ export class DishesComponent implements OnInit {
       });
 
   }
-  getSpagetti(): void {
-    this.dishesService.getSpagetti()
+  getPasta(): void {
+    this.dishesService.getPasta()
       .subscribe(res => {
         this.dishes = res;
         console.log(res);

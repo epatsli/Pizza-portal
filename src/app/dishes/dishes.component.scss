@@ -11,3 +11,46 @@ table {
 th, td {
   padding: 15px;
 }
+
+.buttonAdd {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  padding: 8px;
+  border-radius: 50%;
+  margin: 5px 3px;
+  width: 40px;
+}
+.buttonAdd:hover {background-color: #3e8e41}
+
+.buttonAdd:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px)
+}
+
+.buttonDel {
+  background-color: #FF0000;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  padding: 8px;
+  border-radius: 50%;
+  margin: 5px 3px;
+  width: 40px;
+}
+.buttonDel:hover {background-color: #DC143C}
+
+.buttonDel:active {
+  background-color: #DC143C;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px)
+}
+
