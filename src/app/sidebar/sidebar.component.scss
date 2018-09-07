@@ -1,4 +1,52 @@
+.header{
+  display: flex;
+  align-items: center;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 20px;
+  padding: 10px;
+}
 
 
+.title{
+  display: flex;
+  align-items: center;
+  font-family: 'Permanent Marker', cursive;
+}
 
+.summary{
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  font-size: 24px;
+  font-family: 'Permanent Marker', cursive;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+  background-color: #32CD32;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+.summary:hover {
+  background-color: #3e8e41
+}
 
+.summary:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.positionButton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 50%;
+}
+
+.products{
+
+}

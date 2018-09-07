@@ -1,11 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 <div id="container">
-  <app-top-bar></app-top-bar>
-  <app-home></app-home>
-  <app-sidebar></app-sidebar>
 
-  <div id="content">
+  <div class="header">
+  <app-top-bar></app-top-bar>
+  </div>
+
+  <div class="innercontainer">
+
+    <div class="sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="body">
+    <app-home></app-home>
     <router-outlet></router-outlet>
+    </div>
+
   </div>
 </div>
