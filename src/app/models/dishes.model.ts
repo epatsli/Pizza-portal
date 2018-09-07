@@ -5,4 +5,5 @@ export interface Dishes {
   description: string;
   type: string;
   price: number;
+  count: number;
 }
