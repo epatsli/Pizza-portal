@@ -3,28 +3,17 @@ import {Dishes} from '../models/dishes.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
   dishes: Dishes[] = [];
-  price = 0;
-  value = 0
+  totalPrice = 0;
   constructor(readonly http: HttpClient) { }
 
   getDishes(): Dishes[] {
     return this.dishes;
-  }
-
-  public getDishess(id: number): Dishes {
-    return this.dishes
-      .find((item: Dishes) => {
-        return item.id === id;
-      });
-  }
-
-  addValue() {
-    return this.value++;
   }
 
   addDishToOrder(dish: Dishes) {
@@ -47,6 +36,7 @@ export class ShoppingCartService {
       dish.count = 1;
       this.dishes.push(dish);
     }
+    this.totalPrice += parseFloat((dish.price * 100 / 100).toFixed(2));
   }
 
   delete(dish: Dishes) {
@@ -57,12 +47,14 @@ export class ShoppingCartService {
       for (i = 0; i < this.dishes.length; i++) {
         if (this.dishes[i] === dish) {
           this.dishes.splice(i, 1);
-          const num = dish.price;
-          this.price = parseFloat((this.price - num * 100 / 100).toFixed(2));
-          break;
         }
       }
     }
+    this.totalPrice -= parseFloat((dish.price * 100 / 100).toFixed(2));
+  }
+
+  getCost(): number {
+    return this.totalPrice;
   }
 }
 

@@ -1,8 +1,3 @@
-<p>
-  shopping-cart works!
-</p>
-
-
 <div class="header">Your order</div>
 
 <div class="products">Products:</div>
@@ -19,12 +14,12 @@
     <td>{{dish.name}}</td>
     <td>{{dish.price}}</td>
     <td> {{dish.count}} </td>
-    <button ng-click="count = count - 1" ng-init="count=0" class="buttonDel" (click)="shoppingCartService.delete(dish)"> - </button>
+    <button class="buttonDel" (click)="shoppingCartService.delete(dish)"> - </button>
   </tr>
 
 
 </table>
-<div class="title">Total price:</div>
+<div class="title">Total price: {{shoppingCartService.getCost()}} </div>
 
 
 

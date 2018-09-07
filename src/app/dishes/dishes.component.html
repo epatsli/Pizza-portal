@@ -11,7 +11,7 @@
     <th>Name:</th>
     <th>Description:</th>
     <th>Price:</th>
-    <th>Book:</th>
+    <th></th>
   </tr>
 
   <tr *ngFor="let dish of dishes">
@@ -19,8 +19,6 @@
     <td>{{dish.description}}</td>
     <td>{{dish.price}}</td>
     <button  class="buttonAdd" (click)="addDishToOrder(dish)" > + </button>
-    <button class="buttonDel"> - </button>
-    {{dish.id}}
   </tr>
 
 </table>
