@@ -20,7 +20,7 @@ export class ShoppingCartService {
     let repeat;
     let i;
 
-    if (this.dishes.length === 0){
+    if (this.dishes.length === 0) {
       dish.count = 1;
       this.dishes.push(dish);
       repeat = true;
@@ -36,7 +36,7 @@ export class ShoppingCartService {
       dish.count = 1;
       this.dishes.push(dish);
     }
-    this.totalPrice += parseFloat((dish.price * 100 / 100).toFixed(2));
+    this.totalPrice = parseFloat((this.totalPrice + dish.price * 100 / 100).toFixed(2));
   }
 
   delete(dish: Dishes) {
@@ -50,7 +50,7 @@ export class ShoppingCartService {
         }
       }
     }
-    this.totalPrice -= parseFloat((dish.price * 100 / 100).toFixed(2));
+    this.totalPrice = parseFloat(((this.totalPrice - dish.price) * 100 / 100).toFixed(2));
   }
 
   getTotalPrice(): number {
