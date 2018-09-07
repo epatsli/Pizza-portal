@@ -1,8 +1,32 @@
 
-<div class="header">Your order:</div>
+<div class="header">Your order</div>
 
-<div class="products">Your products:</div>
+<div class="products">Products:</div>
+
+
+<li *ngFor="let dish of dishes | async as dishes; index as i; first as isFirst">
+  {{i}}/{{dish.length}}. {{dishes}} <span *ngIf="isFirst">default</span>
+</li>
+
+<table>
+
+  <tr>
+    <th>Name:</th>
+    <th>Price:</th>
+    <th>Count:</th>
+  </tr>
+
+  <tr *ngFor="let dish of dishes">
+    <td>{{dish.name}}</td>
+    <td>{{dish.price}}</td>
+    <td></td>
+    <button class="buttonDel"> - </button>
+  </tr>
+
+
+</table>
 <div class="title">Total price:</div>
+
 
 
 <div class="positionButton">

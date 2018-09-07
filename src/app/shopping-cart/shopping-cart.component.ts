@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Dishes} from '../models/dishes.model';
+import {DishesService} from '../dishes/dishes.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,14 +8,17 @@ import {Dishes} from '../models/dishes.model';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-  dishes: Dishes[];
-  sumPrice: number;
-  constructor() { }
+  public dishes: Dishes[] = [];
+  public sumPrice: number;
+  constructor(private dishesService: DishesService ) { }
 
   ngOnInit() {
   }
-  addToShoppingCart(dish) {
+
+  addToShoppingCart(dish: Dishes) {
       console.log(dish);
+      this.dishes = [];
+    this.dishes.push(dish);
       for (let i = 0; i < this.dishes.length; i++) {this.totalPrice();
         console.log(this.dishes);
       }

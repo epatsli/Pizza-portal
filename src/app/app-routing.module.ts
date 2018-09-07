@@ -6,10 +6,7 @@ import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'dishes', component: DishesComponent },
-  { path: 'dishes/pizza', component: DishesComponent },
-  { path: 'dishes/pasta', component: DishesComponent },
-  { path: 'dishes/drink', component: DishesComponent },
+  { path: 'dishes/:type', component: DishesComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
 ];

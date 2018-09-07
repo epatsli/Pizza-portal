@@ -1,7 +1,7 @@
-<div class="buttons" xmlns="">
-  <button class="button" [routerLink]="['/dishes/pizza']" (click)="getPizza()">Pizza</button>
-  <button class="button" [routerLink]="['/dishes/pasta']" (click)="getPasta()">Pasta</button>
-  <button class="button" [routerLink]="['/dishes/drink']" (click)="getDrinks()">Drink</button>
+<div class="buttons">
+  <button class="button" [routerLink]="['/dishes/pizza']" >Pizza</button>
+  <button class="button" [routerLink]="['/dishes/pasta']" >Pasta</button>
+  <button class="button" [routerLink]="['/dishes/drink']" >Drink</button>
 </div>
 
 
@@ -18,7 +18,8 @@
     <td>{{dish.name}}</td>
     <td>{{dish.description}}</td>
     <td>{{dish.price}}</td>
-    <button class="buttonAdd"> + </button>
+    <button  class="buttonAdd" (click)="addDishToOrder()" > + </button>
+    {{value}}
     <button class="buttonDel"> - </button>
   </tr>
 
