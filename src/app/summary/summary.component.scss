@@ -2,17 +2,16 @@
   box-sizing: border-box;
   display: none;
   position: absolute;
-
   width: 65%;
   height: 75%;
   padding: 20px 10px;
   background: #A9A9A9;
-
   flex-grow: 1;
   justify-content: center;
   align-items: center;
   margin: 1%;
   border: 1px solid;
+  font-family: 'Permanent Marker', cursive;
 }
 
 :host.is-open {

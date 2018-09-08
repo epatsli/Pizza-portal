@@ -44,7 +44,7 @@ export class DishesService {
   }
   getDrinks(): Observable<Dishes[]> {
     return this.http.get<Dishes[]>('/api/dishes').pipe(
-      map(x => x.filter(y => y.isAvailable && y.type === 'fastfood'))
+      map(x => x.filter(y => y.isAvailable && y.type === 'drink'))
     );
   }
 
