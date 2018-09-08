@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, HostListener } from '@angular/core';
 import {Dishes} from '../models/dishes.model';
 import {DishesService} from '../dishes/dishes.service';
 import {ShoppingCartService} from './shopping-cart.service';
+import {SummaryService} from '../summary/summary.service';
 
 
 @Component({
@@ -10,26 +11,16 @@ import {ShoppingCartService} from './shopping-cart.service';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-   // dishes: Dishes[] = [];
-  // sumPrice: number;
-  constructor(public shoppingCartService: ShoppingCartService ) { }
+
+  constructor(public shoppingCartService: ShoppingCartService,
+              public summaryService: SummaryService) { }
 
   ngOnInit() {
   }
 
- // addToShoppingCart(dish: Dishes) {
- //     console.log(dish);
-//      this.dishes.push(dish);
-   //   for (let i = 0; i < this.dishes.length; i++) {
-    //    console.log(this.dishes);
-    //  }
- //   this.totalPrice();
+ // @HostListener('click')
+ // click() {
+//    this.summaryService.toggle();
  // }
-
- //   totalPrice() {
-//    this.sumPrice = 0;
- //   for (let i = 0; i < this.dishes.length; i++) {this.sumPrice += this.dishes[i].price;
-//      }
- //   }
 
 }

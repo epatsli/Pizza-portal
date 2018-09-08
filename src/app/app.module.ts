@@ -14,6 +14,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { DishesComponent } from './dishes/dishes.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './auth.service';
+import { SummaryComponent } from './summary/summary.component';
+import {SummaryService} from './summary/summary.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {AuthService} from './auth.service';
     LoginFormComponent,
     HomeComponent,
     ShoppingCartComponent,
-    DishesComponent
+    DishesComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -54,10 +57,14 @@ import {AuthService} from './auth.service';
       {
         path: 'dishes/drink',
         component: DishesComponent
+      },
+      {
+        path: 'dishes/summary',
+        component: SummaryComponent
       }
     ])
   ],
-  providers: [],
+  providers: [SummaryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
