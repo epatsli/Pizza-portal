@@ -69,3 +69,13 @@
   box-shadow: 0 5px #666;
   transform: translateY(4px)
 }
+
+#content {
+  display: none;
+}
+#show:target #content {
+  display: inline-block;
+}
+#show:target #open {
+  display: none;
+}

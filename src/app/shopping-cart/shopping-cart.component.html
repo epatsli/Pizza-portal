@@ -21,8 +21,11 @@
 </table>
 <div class="title">Total price: {{shoppingCartService.getTotalPrice()}} </div>
 
-
-
 <div class="positionButton">
   <button class="summary" (click)="summaryService.toggle()">Summary</button>
 </div>
+
+<div id="show" >
+  <button id="open" (click)="summaryService.toggle()"><a href="#show">Summary</a></button>
+</div>
+

@@ -57,10 +57,6 @@ import {SummaryService} from './summary/summary.service';
       {
         path: 'dishes/drink',
         component: DishesComponent
-      },
-      {
-        path: 'dishes/summary',
-        component: SummaryComponent
       }
     ])
   ],

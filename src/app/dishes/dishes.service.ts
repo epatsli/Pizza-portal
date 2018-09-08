@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {Dishes} from '../models/dishes.model';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -10,9 +10,21 @@ import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
   providedIn: 'root'
 })
 export class DishesService {
+
+  isOpen = true;
+  @Output() change: EventEmitter<boolean> = new EventEmitter();
+
   constructor(
     readonly http: HttpClient,
   ) {
+  }
+
+  toggle() {
+    console.log('beforen dish: ' + this.isOpen);
+    this.isOpen = !this.isOpen;
+    console.log('in dish: ' + this.isOpen);
+    this.change.emit( this.isOpen);
+    console.log('after dish: ' + this.isOpen);
   }
 
   getDishes(): Observable<Dishes[]> {

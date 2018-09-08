@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, HostBinding} from '@angular/core';
 import {DishesService} from './dishes.service';
 import {Dishes} from '../models/dishes.model';
 import {ActivatedRoute} from '@angular/router';
@@ -14,6 +14,9 @@ export class DishesComponent implements OnInit {
   dishes: Dishes[] = [];
   value = 0;
 
+  @HostBinding('class.is-open')
+  isOpen = true;
+
   constructor(
     private shoppingcartservice: ShoppingCartService,
     private dishesService: DishesService,
@@ -21,6 +24,10 @@ export class DishesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
+    this.dishesService.change.subscribe(isOpen => {
+      this.isOpen = isOpen;
+    });
     // this.getDishes();
 
     this.router.paramMap.subscribe(params => {
