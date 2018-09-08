@@ -47,9 +47,6 @@
   max-width: 50%;
 }
 
-.products{
-
-}
 
 .buttonDel {
   background-color: #FF0000;
@@ -78,4 +75,12 @@
 }
 #show:target #open {
   display: none;
+}
+
+.toRight {
+  text-align: right;
+}
+
+.toLeft{
+  text-align: left;
 }

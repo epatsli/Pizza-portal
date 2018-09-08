@@ -49,7 +49,6 @@ export class DishesComponent implements OnInit {
     this.dishesService.getDishes()
       .subscribe(res => {
         this.dishes = res;
-        console.log(res);
       });
   }
 
@@ -57,7 +56,6 @@ export class DishesComponent implements OnInit {
     this.dishesService.getPizza()
       .subscribe(res => {
         this.dishes = res;
-        console.log(res);
       });
   }
 
@@ -65,7 +63,6 @@ export class DishesComponent implements OnInit {
     this.dishesService.getPasta()
       .subscribe(res => {
         this.dishes = res;
-        console.log(res);
       });
   }
 
@@ -73,12 +70,10 @@ export class DishesComponent implements OnInit {
     this.dishesService.getDrinks()
       .subscribe(res => {
         this.dishes = res;
-        console.log(res);
       });
   }
   addDishToOrder(dish: Dishes) {
     this.value++;
-    console.log(this.value);
     this.shoppingcartservice.addDishToOrder(dish);
   }
 }

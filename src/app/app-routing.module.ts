@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'dishes/:type', component: DishesComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
+  { path: 'summary', component: ShoppingCartComponent },
 ];
 
 @NgModule({

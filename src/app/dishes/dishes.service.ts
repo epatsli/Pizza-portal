@@ -20,11 +20,8 @@ export class DishesService {
   }
 
   toggle() {
-    console.log('beforen dish: ' + this.isOpen);
     this.isOpen = !this.isOpen;
-    console.log('in dish: ' + this.isOpen);
     this.change.emit( this.isOpen);
-    console.log('after dish: ' + this.isOpen);
   }
 
   getDishes(): Observable<Dishes[]> {

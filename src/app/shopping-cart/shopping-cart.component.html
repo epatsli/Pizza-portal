@@ -1,25 +1,24 @@
 <div class="header">Your order</div>
 
-<div class="products">Products:</div>
-
 <table>
 
   <tr>
-    <th>Name:</th>
+    <th class="toLeft">Name:</th>
     <th>Price:</th>
     <th>Count:</th>
   </tr>
 
-  <tr *ngFor="let dish of shoppingCartService.getDishes()">
+  <tr *ngFor="let dish of shoppingCartService.getDishes()" >
     <td>{{dish.name}}</td>
-    <td>{{dish.price}}</td>
-    <td> {{dish.count}} </td>
+    <td class="toRight">{{dish.price}}</td>
+    <td class="toRight"> {{dish.count}} </td>
     <button class="buttonDel" (click)="shoppingCartService.delete(dish)"> - </button>
   </tr>
-
+  <th class="toLeft">Total price:</th>
+  <th class="toRight">{{shoppingCartService.getTotalPrice()}}</th>
 
 </table>
-<div class="title">Total price: {{shoppingCartService.getTotalPrice()}} </div>
+
 
 <div class="positionButton">
   <button class="summary" (click)="summaryService.toggle()">Summary</button>

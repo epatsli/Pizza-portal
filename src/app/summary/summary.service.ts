@@ -12,11 +12,8 @@ export class SummaryService {
   constructor(public dishesService: DishesService) { }
 
   toggle() {
-    console.log('start sum: ' + this.isOpen);
     this.isOpen = !this.isOpen;
-    console.log('in sum: ' + this.isOpen);
     this.change.emit(this.isOpen);
-    console.log('after sum: ' + this.isOpen);
     this.dishesService.toggle();
   }
 }
