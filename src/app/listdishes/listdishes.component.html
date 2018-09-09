@@ -1,0 +1,25 @@
+
+<table>
+
+  <tr>
+    <th>Id:</th>
+    <th>Type:</th>
+    <th>Name:</th>
+    <th>Description:</th>
+    <th>Availability:</th>
+    <th>Details:</th>
+    <th></th>
+  </tr>
+
+  <tr *ngFor="let dish of dishes">
+    <td>{{dish.id}}</td>
+    <td>{{dish.type}}</td>
+    <td>{{dish.name}}</td>
+    <td>{{dish.description}}</td>
+
+    <td><input type="checkbox"  value="{{dish.isAvailable}}" (change)="toggleVisibility( $event )" />{{dish.isAvailable}}</td>
+    <td>details</td>
+
+  </tr>
+
+</table>

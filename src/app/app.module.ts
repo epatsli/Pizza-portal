@@ -16,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './login-form/auth.service';
 import { SummaryComponent } from './summary/summary.component';
 import {SummaryService} from './summary/summary.service';
+import { ListdishesComponent } from './listdishes/listdishes.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {SummaryService} from './summary/summary.service';
     HomeComponent,
     ShoppingCartComponent,
     DishesComponent,
-    SummaryComponent
+    SummaryComponent,
+    ListdishesComponent
   ],
   imports: [
     BrowserModule,
