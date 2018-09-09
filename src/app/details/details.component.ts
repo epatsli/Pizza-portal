@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Dishes} from '../models/dishes.model';
 import {DishesService} from '../dishes/dishes.service';
 import {DetailsService} from './details.service';
+import {ActivatedRoute} from '@angular/router';
+import {takeUntil} from 'rxjs/internal/operators';
+import {Subject} from 'rxjs/index';
 
 @Component({
   selector: 'app-details',
@@ -10,15 +13,18 @@ import {DetailsService} from './details.service';
 })
 export class DetailsComponent implements OnInit {
   dishes: Dishes[] = [];
-  constructor(private detailsService: DetailsService) { }
-  ngOnInit() {
-    this.getDish(1);
+  private readonly destroy$ = new Subject();
+
+  constructor(private detailsService: DetailsService,
+              private readonly route: ActivatedRoute) {
   }
 
-  getDish(id: number): void {
-    this.detailsService.getDish(id)
-      .subscribe(res => {
-        this.dishes = res;
-      });
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    alert(id);
+    this.detailsService.getDish(+id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(res => this.dishes = res);
   }
+
 }
