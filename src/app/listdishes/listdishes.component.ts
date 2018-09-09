@@ -53,4 +53,6 @@ export class ListdishesComponent implements OnInit {
       this.contentEditable = true;
     }
   }
+
+
 }

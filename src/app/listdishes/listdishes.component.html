@@ -18,7 +18,7 @@
     <td>{{dish.description}}</td>
 
     <td><input type="checkbox"  value="{{dish.isAvailable}}" (change)="toggleVisibility( $event )" />{{dish.isAvailable}}</td>
-    <td>details</td>
+    <td><button [routerLink]="['listdishes/details/${id}']">Details</button></td>
 
   </tr>
 

@@ -17,6 +17,7 @@ import {AuthService} from './login-form/auth.service';
 import { SummaryComponent } from './summary/summary.component';
 import {SummaryService} from './summary/summary.service';
 import { ListdishesComponent } from './listdishes/listdishes.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ListdishesComponent } from './listdishes/listdishes.component';
     ShoppingCartComponent,
     DishesComponent,
     SummaryComponent,
-    ListdishesComponent
+    ListdishesComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
