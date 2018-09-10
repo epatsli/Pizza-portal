@@ -45,4 +45,10 @@ export class DishesService {
     );
   }
 
+  getDish(id: number): Observable<Dishes[]> {
+    return this.http.get<Dishes[]>('/api/dishes').pipe(
+      map(x => x.filter(y => y.id))
+    );
+  }
+
 }

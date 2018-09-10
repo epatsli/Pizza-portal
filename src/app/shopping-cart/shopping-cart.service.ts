@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Dishes} from '../models/dishes.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Orders} from '../models/orders.model';
+import {Observable} from 'rxjs';
 
-
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +14,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class ShoppingCartService {
   dishes: Dishes[] = [];
   totalPrice = 0;
+  isOrderFinished = false;
+
   constructor(readonly http: HttpClient) { }
 
   getDishes(): Dishes[] {
@@ -55,6 +61,19 @@ export class ShoppingCartService {
 
   getTotalPrice(): number {
     return this.totalPrice;
+  }
+
+
+  saveOrder(order: Orders): Observable<Orders> {
+    let dishesIds: number[] = [];
+    let i;
+    for (i = 0; i < this.dishes.length; i++) {
+      dishesIds.push(this.dishes[i].id);
+    }
+    order.dishIds = dishesIds;
+    order.status = 'accepted';
+    this.isOrderFinished = false;
+    return this.http.post<Orders>('/api/orders', order, httpOptions);
   }
 }
 

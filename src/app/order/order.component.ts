@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {OrderService} from './order.service';
 import {takeUntil} from 'rxjs/internal/operators';
 import {Subject} from 'rxjs/index';
+import {DishesService} from '../dishes/dishes.service';
 
 @Component({
   selector: 'app-order',
@@ -18,7 +19,8 @@ export class OrderComponent implements OnInit {
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly orderservice: OrderService) { }
+    private readonly orderservice: OrderService,
+    private disheservice: DishesService) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -28,4 +30,7 @@ export class OrderComponent implements OnInit {
       .subscribe(res => this.orders = res);
   }
 
+  getDish(id: number) {
+    this.disheservice.getDish(id);
+  }
 }
