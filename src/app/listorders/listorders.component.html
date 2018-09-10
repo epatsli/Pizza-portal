@@ -1,0 +1,15 @@
+<table>
+
+  <tr>
+    <th>Id:</th>
+    <th>Type:</th>
+
+  </tr>
+
+  <tr *ngFor="let order of orders">
+    <td>{{order.id}}</td>
+    <td>{{order.dishIds}}</td>
+    <td><button [routerLink]="['order/', order.id]" >Details</button></td>
+  </tr>
+
+</table>

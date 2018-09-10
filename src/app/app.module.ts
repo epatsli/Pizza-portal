@@ -18,6 +18,8 @@ import { SummaryComponent } from './summary/summary.component';
 import {SummaryService} from './summary/summary.service';
 import { ListdishesComponent } from './listdishes/listdishes.component';
 import { DetailsComponent } from './details/details.component';
+import { ListordersComponent } from './listorders/listorders.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { DetailsComponent } from './details/details.component';
     DishesComponent,
     SummaryComponent,
     ListdishesComponent,
-    DetailsComponent
+    DetailsComponent,
+    ListordersComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
