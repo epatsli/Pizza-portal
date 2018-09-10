@@ -1,8 +1,17 @@
 <pre>
   {{orders | json}}
 </pre>
+<div  *ngIf="orders">
 
 <p>
   order works!
 </p>
+
 {{orders.id}}
+{{orders.dishIds}}
+
+<tr *ngFor="let dish of orders.dishIds">
+  <td>{{dish.id}}</td>
+  <td>{{dish.name}}</td>
+</tr>
+</div>

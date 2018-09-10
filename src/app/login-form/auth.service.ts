@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Dishes} from '../models/dishes.model';
 import {map} from 'rxjs/operators';
-import {User} from '../models/user.model';
+import {Users} from '../models/users.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,17 +15,9 @@ export class AuthService {
   ) {
   }
 
-  getUserDetails(name, password) {
-    if ((name === 'admin') && (password === 'admin')) {
-      window.alert('aas');
-    }
-  }
-
-
-
-  getUser(name: string): Observable<User[]> {
-   return this.http.get<User[]>('/api/user').pipe(
-      map(x => x.filter(y => y.name === name))
+  getUser(name: string): Observable<Users[]> {
+   return this.http.get<Users[]>('/api/users').pipe(
+      map(x => x.filter(y => y.name === name) )
     );
   }
 }

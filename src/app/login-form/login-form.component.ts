@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from './auth.service';
-import {User} from '../models/user.model';
+import {Users} from '../models/users.model';
 
 @Component({
   selector: 'app-login-form',
@@ -9,7 +9,7 @@ import {User} from '../models/user.model';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  user: User[] = [];
+  user: Users[] = [];
 
   constructor(private router: Router, private authService: AuthService) {
   }
@@ -18,33 +18,15 @@ export class LoginFormComponent implements OnInit {
   }
 
   loginUser(event) {
-    //  event.preventDefault();
 
-    let name = event.target.elements[0].value;
-  //  this.getUser(name);
-    let password = event.target.elements[1].value;
-
+    const name = event.target.elements[0].value;
+    const password = event.target.elements[1].value;
     if (name === 'admin' && password === 'admin') {
-      //   this.user.setUserLoggedIn();
-      this.router.navigate(['dishes/drink']);
+      this.router.navigate(['listorders']);
     }
     else {
       alert('Incorect name or pasword');
     }
-
-    //  this.authService.getUserDetails(username, password);
-    //  console.log(username, password);
-  }
-
-
-
-  getUser(name: string): void {
-  this.authService.getUser(name)
-      .subscribe(res => {
-        this.user = res;
-        console.log('eee' + res);
-      });
-
   }
 }
 
