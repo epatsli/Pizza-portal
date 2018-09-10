@@ -12,7 +12,6 @@ export class ListdishesComponent implements OnInit {
 
   dishes: Dishes[] = [];
   contentEditable = false;
-private isAvailable = true;
   constructor(private listdishesService: ListdishesService, private router: ActivatedRoute ) { }
 
   ngOnInit() {

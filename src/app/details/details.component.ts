@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import {Dishes} from '../models/dishes.model';
 import {DishesService} from '../dishes/dishes.service';
 import {DetailsService} from './details.service';
@@ -11,8 +11,8 @@ import {Subject} from 'rxjs/index';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit {
-  dishes: Dishes[] = [];
+export class DetailsComponent implements OnInit, OnDestroy {
+  dishes: Dishes;
   private readonly destroy$ = new Subject();
   @Input() dish: Dishes;
 
@@ -27,4 +27,8 @@ export class DetailsComponent implements OnInit {
       .subscribe(res => this.dishes = res);
   }
 
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }

@@ -12,7 +12,7 @@ export class DetailsService {
 
   constructor(readonly http: HttpClient) { }
 
-  getDish(id: number): Observable<Dishes[]> {
-    return this.http.get<Dishes[]>(`/api/dishes/${id}`);
+  getDish(id: number): Observable<Dishes> {
+    return this.http.get<Dishes>(`/api/dishes/${id}`);
   }
 }

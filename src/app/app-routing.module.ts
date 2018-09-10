@@ -4,6 +4,7 @@ import { DishesComponent } from './dishes/dishes.component';
 import {LoginFormComponent} from './login-form/login-form.component';
 import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
 import {ListdishesComponent} from './listdishes/listdishes.component';
+import {DetailsComponent} from './details/details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'summary', component: ShoppingCartComponent },
   { path: 'listdishes', component: ListdishesComponent},
-  { path: 'listdishes/details/:id', component: DishesComponent },
+  { path: 'listdishes/details/:id', component: DetailsComponent },
 ];
 
 @NgModule({
