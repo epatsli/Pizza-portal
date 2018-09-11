@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -66,7 +67,8 @@ import { OrderComponent } from './order/order.component';
         path: 'dishes/drink',
         component: DishesComponent
       }
-    ])
+    ]),
+    FormsModule
   ],
   providers: [SummaryService],
   bootstrap: [AppComponent]

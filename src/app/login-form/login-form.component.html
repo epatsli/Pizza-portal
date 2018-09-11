@@ -1,14 +1,14 @@
-<div *ngIf=""></div>
-<form (submit)="loginUser($event)">
+
+<form (ngSubmit)="loginUser($event)" #loginForm = "ngForm">
   <div class="input" >
     <label>Username</label>
-    <input type="text" id="username">
+    <input [(ngModel)]="username" type="text" name="username" id="username" >
   </div>
   <div class="input">
     <label>Password</label>
-    <input type="password" id="password">
+    <input [(ngModel)]="password" type="password" name="password" id="password" >
   </div>
   <div class="input">
-    <input type="submit" (click)="loginUser()" value="Login">
+    <button type="submit" >Login</button>
   </div>
 </form>

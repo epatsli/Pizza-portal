@@ -1,6 +1,4 @@
-import { Component, OnInit, EventEmitter, HostListener } from '@angular/core';
-import {Dishes} from '../models/dishes.model';
-import {DishesService} from '../dishes/dishes.service';
+import { Component, OnInit } from '@angular/core';
 import {ShoppingCartService} from './shopping-cart.service';
 import {SummaryService} from '../summary/summary.service';
 
@@ -17,10 +15,5 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit() {
   }
-
- // @HostListener('click')
- // click() {
-//    this.summaryService.toggle();
- // }
 
 }

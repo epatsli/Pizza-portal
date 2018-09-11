@@ -64,16 +64,16 @@ export class ShoppingCartService {
   }
 
 
-  saveOrder(order: Orders): Observable<Orders> {
+  saveOrder(orders: Orders): Observable<Orders> {
     let dishesIds: number[] = [];
     let i;
     for (i = 0; i < this.dishes.length; i++) {
       dishesIds.push(this.dishes[i].id);
     }
-    order.dishIds = dishesIds;
-    order.status = 'accepted';
+    orders.dishIds = dishesIds;
+    orders.status = 'accepted';
     this.isOrderFinished = false;
-    return this.http.post<Orders>('/api/orders', order, httpOptions);
+    return this.http.post<Orders>('/api/orders', orders, httpOptions);
   }
 }
 

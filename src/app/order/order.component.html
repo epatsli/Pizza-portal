@@ -6,12 +6,12 @@
 <p>
   order works!
 </p>
+  {{orders.id}}
 
-{{orders.id}}
-{{orders.dishIds}}
+
 
 <tr *ngFor="let dish of orders.dishIds">
-  <td>{{dish.id}}</td>
-  <td>{{dish.name}}</td>
+  <td>getDish({{dish}}) </td>
+
 </tr>
 </div>

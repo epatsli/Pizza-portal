@@ -9,7 +9,7 @@ import {Orders} from '../models/orders.model';
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
-  order: Orders = new class implements Orders {
+  orders: Orders = new class implements Orders {
     city: string;
     dishIds: number[];
     email: string;
@@ -36,6 +36,6 @@ export class SummaryComponent implements OnInit {
   }
 
   saveOrder() {
-    this.shoppingcartService.saveOrder(this.order).subscribe(x => alert('Add orders'));
+    this.shoppingcartService.saveOrder(this.orders).subscribe(x => alert('Add orders'));
   }
 }

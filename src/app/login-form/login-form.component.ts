@@ -10,7 +10,8 @@ import {Users} from '../models/users.model';
 })
 export class LoginFormComponent implements OnInit {
   user: Users[] = [];
-
+  username: string;
+  password: string;
   constructor(private router: Router, private authService: AuthService) {
   }
 
