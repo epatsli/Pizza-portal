@@ -10,17 +10,18 @@ import {Orders} from '../models/orders.model';
 })
 export class SummaryComponent implements OnInit {
   orders: Orders = new class implements Orders {
-    city: string;
-    dishIds: number[];
-    email: string;
-    firstName: string;
-    flat: string;
-    floor: string;
     id: number;
+    dishIds: number[];
+    firstName: string;
     lastName: string;
     phone: string;
-    status: string;
+    email: string;
+    city: string;
     street: string;
+    flat: string;
+    floor: string;
+    status: string;
+
   }
 
   @HostBinding('class.is-open')

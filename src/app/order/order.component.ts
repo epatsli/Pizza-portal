@@ -3,8 +3,9 @@ import { Orders} from '../models/orders.model';
 import {ActivatedRoute} from '@angular/router';
 import {OrderService} from './order.service';
 import {takeUntil} from 'rxjs/internal/operators';
-import {Subject} from 'rxjs/index';
+import {Observable, Subject} from 'rxjs/index';
 import {DishesService} from '../dishes/dishes.service';
+import {Dish} from '../models/dishes.model';
 
 @Component({
   selector: 'app-order',
@@ -12,25 +13,29 @@ import {DishesService} from '../dishes/dishes.service';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-//  order: Orders[];
   private readonly destroy$ = new Subject();
 
   @Input() orders: Orders;
 
+  sampleOrder$;
+
   constructor(
     private readonly route: ActivatedRoute,
     private readonly orderservice: OrderService,
-    private disheservice: DishesService) { }
+    private readonly dishService: DishesService) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-
+    const id = 1;
+    // const id = this.route.snapshot.paramMap.get('id');
     this.orderservice.getOrder(+id)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(res => this.orders = res);
+      .pipe(takeUntil(this.destroy$));
+
+    this.sampleOrder$ = this.orderservice.getOrder(+id)
+      .pipe(takeUntil(this.destroy$));
   }
 
-  getDish(id: number) {
-    this.disheservice.getDish(id);
+  public getDish(id: number) {
+    // this.dishService.getDish(id);
+    this.dishService.getSomeOtherDish();
   }
 }

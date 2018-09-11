@@ -1,6 +1,6 @@
 import {Component, OnInit, HostBinding} from '@angular/core';
 import {DishesService} from './dishes.service';
-import {Dishes} from '../models/dishes.model';
+import {Dish} from '../models/dishes.model';
 import {ActivatedRoute} from '@angular/router';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 
@@ -11,7 +11,7 @@ import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
   styleUrls: ['./dishes.component.scss']
 })
 export class DishesComponent implements OnInit {
-  dishes: Dishes[] = [];
+  dishes: Dish[] = [];
   value = 0;
 
   @HostBinding('class.is-open')
@@ -72,7 +72,7 @@ export class DishesComponent implements OnInit {
         this.dishes = res;
       });
   }
-  addDishToOrder(dish: Dishes) {
+  addDishToOrder(dish: Dish) {
     this.value++;
     this.shoppingcartservice.addDishToOrder(dish);
   }

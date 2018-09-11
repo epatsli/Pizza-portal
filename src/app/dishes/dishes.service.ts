@@ -1,5 +1,5 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
-import {Dishes} from '../models/dishes.model';
+import {Dish} from '../models/dishes.model';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -24,31 +24,38 @@ export class DishesService {
     this.change.emit( this.isOpen);
   }
 
-  getDishes(): Observable<Dishes[]> {
-    return this.http.get<Dishes[]>('/api/dishes').pipe(
+  getDishes(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable))
     );
   }
-  getPizza(): Observable<Dishes[]> {
-    return this.http.get<Dishes[]>('/api/dishes').pipe(
+  getPizza(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'pizza'))
     );
   }
-  getPasta(): Observable<Dishes[]> {
-    return this.http.get<Dishes[]>('/api/dishes').pipe(
+  getPasta(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'spagetti'))
     );
   }
-  getDrinks(): Observable<Dishes[]> {
-    return this.http.get<Dishes[]>('/api/dishes').pipe(
+  getDrinks(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'drink'))
     );
   }
 
-  getDish(id: number): Observable<Dishes[]> {
-    return this.http.get<Dishes[]>('/api/dishes').pipe(
-      map(x => x.filter(y => y.id))
+  getDish(id: number): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes').pipe(
+      map(x => {
+        return x.filter(y => {
+          return y.id;
+        });
+      })
     );
   }
 
+  getSomeOtherDish() {
+    return 'dish';
+  }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Dishes} from '../models/dishes.model';
+import {Dish} from '../models/dishes.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Orders} from '../models/orders.model';
 import {Observable} from 'rxjs';
@@ -12,17 +12,17 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ShoppingCartService {
-  dishes: Dishes[] = [];
+  dishes: Dish[] = [];
   totalPrice = 0;
   isOrderFinished = false;
 
   constructor(readonly http: HttpClient) { }
 
-  getDishes(): Dishes[] {
+  getDishes(): Dish[] {
     return this.dishes;
   }
 
-  addDishToOrder(dish: Dishes) {
+  addDishToOrder(dish: Dish) {
     let repeat;
     let i;
 
@@ -45,7 +45,7 @@ export class ShoppingCartService {
     this.totalPrice = parseFloat((this.totalPrice + dish.price * 100 / 100).toFixed(2));
   }
 
-  delete(dish: Dishes) {
+  delete(dish: Dish) {
     let i;
     if (dish.count > 1) {
       dish.count -= 1;
@@ -71,7 +71,7 @@ export class ShoppingCartService {
       dishesIds.push(this.dishes[i].id);
     }
     orders.dishIds = dishesIds;
-    orders.status = 'accepted';
+    orders.status = 'in progress';
     this.isOrderFinished = false;
     return this.http.post<Orders>('/api/orders', orders, httpOptions);
   }

@@ -12,6 +12,7 @@ export class LoginFormComponent implements OnInit {
   user: Users[] = [];
   username: string;
   password: string;
+  login = false;
   constructor(private router: Router, private authService: AuthService) {
   }
 
@@ -23,9 +24,11 @@ export class LoginFormComponent implements OnInit {
     const name = event.target.elements[0].value;
     const password = event.target.elements[1].value;
     if (name === 'admin' && password === 'admin') {
+      this.login = true;
       this.router.navigate(['listorders']);
     }
     else {
+      this.login = false;
       alert('Incorect name or pasword');
     }
   }

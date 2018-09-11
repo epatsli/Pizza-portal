@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import {Dishes} from '../models/dishes.model';
+import {Dish} from '../models/dishes.model';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 
@@ -11,21 +11,21 @@ export class ListdishesService {
 
   constructor(readonly http: HttpClient) { }
 
-  getDishes(): Observable<Dishes[]> {
-    return this.http.get<Dishes[]>('/api/dishes');
+  getDishes(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes');
   }
-  getPizza(): Observable<Dishes[]> {
-    return this.http.get<Dishes[]>('/api/dishes').pipe(
+  getPizza(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.type === 'pizza'))
     );
   }
-  getPasta(): Observable<Dishes[]> {
-    return this.http.get<Dishes[]>('/api/dishes').pipe(
+  getPasta(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.type === 'spagetti'))
     );
   }
-  getDrinks(): Observable<Dishes[]> {
-    return this.http.get<Dishes[]>('/api/dishes').pipe(
+  getDrinks(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.type === 'drink'))
     );
   }

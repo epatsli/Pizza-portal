@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ListdishesService} from './listdishes.service';
 import {ActivatedRoute} from '@angular/router';
-import {Dishes} from '../models/dishes.model';
+import {Dish} from '../models/dishes.model';
 
 @Component({
   selector: 'app-listdishes',
@@ -10,7 +10,7 @@ import {Dishes} from '../models/dishes.model';
 })
 export class ListdishesComponent implements OnInit {
 
-  dishes: Dishes[] = [];
+  dishes: Dish[] = [];
   contentEditable = false;
   constructor(private listdishesService: ListdishesService, private router: ActivatedRoute ) { }
 

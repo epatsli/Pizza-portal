@@ -1,4 +1,4 @@
-export interface Dishes {
+export interface Dish {
   id: number;
   name: string;
   isAvailable: boolean;

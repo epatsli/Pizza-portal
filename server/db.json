@@ -84,7 +84,33 @@
   "orders": [
     {
       "id": 1,
-      "dishIds": [1, 5]
+      "dishIds": [
+        1,
+        5
+      ],
+      "firstname": "Jan",
+      "lastname": "Nowak",
+      "email": "jan.nowak@gmail.com"
+    },
+    {
+      "id": 2,
+      "dishIds": [
+        1,
+        2,
+        3
+      ],
+      "status": "in progress",
+      "firstname": "Iza",
+      "lastname": "Bryk",
+      "email": "iza.bryk@gmail.com"
+    },
+    {
+      "dishIds": [
+        1,
+        3
+      ],
+      "status": "accepted",
+      "id": 3
     }
   ],
   "users": [

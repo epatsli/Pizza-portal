@@ -4,14 +4,20 @@
 <div  *ngIf="orders">
 
 <p>
-  order works!
+  Orders details
 </p>
-  {{orders.id}}
+
+  <div>#Order: {{orders.id}}</div>
+
 
 
 
 <tr *ngFor="let dish of orders.dishIds">
-  <td>getDish({{dish}}) </td>
+
+  <td> this.getDish({{dish}}) </td>
+
+  <td>{{disheservice.getDish(dish)}} </td>
+
 
 </tr>
 </div>
