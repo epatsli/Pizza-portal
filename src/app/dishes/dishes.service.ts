@@ -21,7 +21,7 @@ export class DishesService {
 
   toggle() {
     this.isOpen = !this.isOpen;
-    this.change.emit( this.isOpen);
+    this.change.emit(this.isOpen);
   }
 
   getDishes(): Observable<Dish[]> {
@@ -29,16 +29,19 @@ export class DishesService {
       map(x => x.filter(y => y.isAvailable))
     );
   }
+
   getPizza(): Observable<Dish[]> {
     return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'pizza'))
     );
   }
+
   getPasta(): Observable<Dish[]> {
     return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'spagetti'))
     );
   }
+
   getDrinks(): Observable<Dish[]> {
     return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'drink'))

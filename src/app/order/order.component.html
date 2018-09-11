@@ -12,12 +12,15 @@
 
 
 
-<tr *ngFor="let dish of orders.dishIds">
+<tr *ngFor="let dishId of orders.dishIds">
 
-  <td> this.getDish({{dish}}) </td>
-
-  <td>{{disheservice.getDish(dish)}} </td>
+  <td>{{getDish(dishId)}} </td>
 
 
 </tr>
+</div>
+
+
+<div class="rightDiv">
+  <a routerLink="/listorders/">Back</a>
 </div>

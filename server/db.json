@@ -88,9 +88,14 @@
         1,
         5
       ],
-      "firstname": "Jan",
-      "lastname": "Nowak",
-      "email": "jan.nowak@gmail.com"
+      "firstName": "Jan",
+      "lastName": "Nowak",
+      "email": "jan.nowak@gmail.com",
+      "city": "Poznan",
+      "street": "Konwalijska",
+      "floor": "2",
+      "flat": "18"
+
     },
     {
       "id": 2,
@@ -100,9 +105,10 @@
         3
       ],
       "status": "in progress",
-      "firstname": "Iza",
-      "lastname": "Bryk",
-      "email": "iza.bryk@gmail.com"
+      "firstName": "Iza",
+      "lastName": "Bryk",
+      "email": "iza.bryk@gmail.com",
+      "price": "27.50"
     },
     {
       "dishIds": [

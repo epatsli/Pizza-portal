@@ -1,0 +1,21 @@
+<div *ngIf="order">
+  <table>
+    <tr>
+      <th>City:</th>
+      <th>Street:</th>
+      <th>Flat:</th>
+      <th>Floor:</th>
+    </tr>
+
+    <tr>
+      <td>{{order.city}}</td>
+      <td>{{order.street}}</td>
+      <td>{{order.flat}}</td>
+      <td>{{order.floor}}</td>
+    </tr>
+  </table>
+
+  <div class="rightDiv">
+    <a routerLink="/listorders/">Back</a>
+  </div>
+</div>

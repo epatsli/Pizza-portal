@@ -9,5 +9,6 @@ export interface Orders {
   street: string;
   flat: string;
   floor: string;
+  price: string;
   status: string;
 }

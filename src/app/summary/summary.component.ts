@@ -21,7 +21,7 @@ export class SummaryComponent implements OnInit {
     flat: string;
     floor: string;
     status: string;
-
+    price: string;
   }
 
   @HostBinding('class.is-open')
