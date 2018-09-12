@@ -53,6 +53,10 @@ export class DishesService {
       map(x => x.filter(y => y.id === id)));
   }
 
+  updateDish(dish: Dish): Observable<Dish> {
+
+    return this.http.put<Dish>(`/api/dishes/${dish.id}`, dish);
+  }
 
   getSomeOtherDish() {
     return 'dish';

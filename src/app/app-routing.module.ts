@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'summary', component: ShoppingCartComponent },
   { path: 'listdishes', component: ListdishesComponent},
-  { path: 'listdishes/details/:id', component: DetailsComponent,  canActivate: [AuthService]},
+  { path: 'listdishes/details/:id', component: DetailsComponent},
   { path: 'listorders', component: ListordersComponent, canActivate: [AuthService]},
   { path: 'listorders/order/:id', component: OrderComponent, canActivate: [AuthService]},
   { path: 'listorders/address-details/:id', component: AddressDetailsComponent, canActivate: [AuthService]},

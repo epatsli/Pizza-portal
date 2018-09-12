@@ -4,7 +4,7 @@ import {DishesService} from '../dishes/dishes.service';
 import {DetailsService} from './details.service';
 import {ActivatedRoute} from '@angular/router';
 import {takeUntil} from 'rxjs/internal/operators';
-import {Subject} from 'rxjs/index';
+import {Subject, Subscription} from 'rxjs/index';
 
 @Component({
   selector: 'app-details',
@@ -14,10 +14,13 @@ import {Subject} from 'rxjs/index';
 export class DetailsComponent implements OnInit, OnDestroy {
   dishes: Dish;
   private readonly destroy$ = new Subject();
+  sub: Subscription ;
+
   @Input() dish: Dish;
 
   constructor(private detailsService: DetailsService,
-              private readonly route: ActivatedRoute) {
+              private readonly route: ActivatedRoute,
+              private dishService: DishesService) {
   }
 
   ngOnInit() {
@@ -30,5 +33,17 @@ export class DetailsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  changeAfterClick(dish: Dish): void {
+
+    if (dish.isAvailable) {
+      dish.isAvailable = false;
+    } else {
+      dish.isAvailable = true;
+    }
+
+    console.log(dish.id);
+    this.sub = this.dishService.updateDish(dish).subscribe();
   }
 }

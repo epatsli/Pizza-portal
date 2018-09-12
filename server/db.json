@@ -19,7 +19,7 @@
     {
       "id": 3,
       "name": "Pizza rzeznicka",
-      "isAvailable": true,
+      "isAvailable": false,
       "description": "Sos, ser, pieczarki, kielbasa, szynka",
       "type": "pizza",
       "price": "27.50"
@@ -27,7 +27,7 @@
     {
       "id": 4,
       "name": "Spagetti Bolognese",
-      "isAvailable": false,
+      "isAvailable": true,
       "description": "Sos boloński",
       "type": "spagetti",
       "price": "14"
@@ -35,7 +35,7 @@
     {
       "id": 5,
       "name": "Spagetti Pomodoro",
-      "isAvailable": true,
+      "isAvailable": false,
       "description": "Kawalki kurczaka w sosie pomidorowym",
       "type": "spagetti",
       "price": "14"

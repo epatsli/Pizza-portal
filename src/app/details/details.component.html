@@ -3,11 +3,14 @@
     <h3>#{{dishes.id}}</h3>
     <h2>{{dishes.name}}</h2>
     <h4>{{dishes.description}}</h4>
-    <h4 class="right">Price: {{dishes.price}} PLN</h4>
+    <div><input type="checkbox" name="available" [checked]="dishes.isAvailable" value="dish.isAvailable"
+                (change)="dishes.isAvailable = $event.target.checked" (click)="this.changeAfterClick(dishes)"/> <h4> {{dishes.isAvailable}}</h4></div>
+
+    <h4 class=" right"> Price: {{dishes.price}} PLN</h4>
   </div>
 </div>
 <div class="rightDiv">
-<a routerLink="/listdishes/">Back</a>
+  <a routerLink="/listdishes/">Back</a>
 </div>
 
 

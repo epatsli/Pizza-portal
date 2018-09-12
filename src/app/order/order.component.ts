@@ -25,33 +25,24 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit() {
-    //const id = 1;
+
     const id = this.route.snapshot.paramMap.get('id');
 
     this.orderservice.getOrder(+id)
       .pipe(takeUntil(this.destroy$)).subscribe(res => this.order = res);
-
-    // this.sampleOrder$ = this.orderservice.getOrder(+id)
-    //   .pipe(takeUntil(this.destroy$));
   }
 
   public getDish(id: number) {
     this.dishService.getDish(id);
-    }
-
-  public getDishe(id: number) {
-    this.dishService.getDish(id).pipe(takeUntil(this.destroy$))
-      .subscribe(res => this.dishes = res);
-      }
+  }
 
   public getDi(ids: Dish[] = []) {
     let i;
     for (i = 0; i < ids.length; i++) {
-       this.getDish(i);
+      this.getDish(i);
     }
     return this;
   }
-
 
   public changeStatusToInProgress(): void {
     this.order.status = 'In progress';
@@ -71,10 +62,9 @@ export class OrderComponent implements OnInit {
   public update(): void {
     this.orderservice.updateOrder(this.order).pipe(takeUntil(this.destroy$))
       .subscribe(res => this.order = res);
-
   }
 
-  }
+}
 
 
 

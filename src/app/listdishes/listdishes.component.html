@@ -7,7 +7,6 @@
     <th>Description:</th>
     <th>Availability:</th>
     <th>Details:</th>
-    <th></th>
   </tr>
 
   <tr *ngFor="let dish of dishes">
@@ -15,10 +14,14 @@
     <td>{{dish.type}}</td>
     <td>{{dish.name}}</td>
     <td>{{dish.description}}</td>
-    <td class = "center"><input type="checkbox" name="available" [checked]="dish.isAvailable" value="dish.isAvailable" (change)="dish.isAvailable = $event.target.checked" /></td>
-    <td><button [routerLink]="['details/', dish.id]" class = "button">Details</button></td>
 
-    <td><input type="checkbox"  value="{{dish.isAvailable}}" (change)="toggleVisibility( $event )" />{{dish.isAvailable}}</td>
+    <td class="center"><input type="checkbox" name="available" [checked]="dish.isAvailable" value="dish.isAvailable"
+                              (change)="dish.isAvailable = $event.target.checked" (click)="this.changeWhenIsNotAvailability(dish)"/>
+    </td>
+
+    <td>
+      <button [routerLink]="['details/', dish.id]" class="button">Details</button>
+    </td>
   </tr>
 
 </table>

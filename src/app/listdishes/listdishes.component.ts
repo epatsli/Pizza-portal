@@ -2,6 +2,8 @@ import { Component, OnInit, OnChanges, SimpleChange, Input } from '@angular/core
 import {ListdishesService} from './listdishes.service';
 import {ActivatedRoute} from '@angular/router';
 import {Dish} from '../models/dishes.model';
+import {Subscription} from 'rxjs';
+import {DishesService} from '../dishes/dishes.service';
 
 @Component({
   selector: 'app-listdishes',
@@ -12,8 +14,12 @@ export class ListdishesComponent implements OnInit {
 
   dishes: Dish[] = [];
   contentEditable = false;
+  sub: Subscription ;
 
-  constructor(private listdishesService: ListdishesService, private router: ActivatedRoute ) { }
+  constructor(
+    private listdishesService: ListdishesService,
+    private router: ActivatedRoute,
+    private dishService: DishesService) { }
 
   @Input()
   prop !: number;
@@ -55,6 +61,18 @@ export class ListdishesComponent implements OnInit {
     if ( event.target.checked ) {
       this.contentEditable = true;
     }
+  }
+
+  changeWhenIsNotAvailability(dish: Dish): void {
+
+    if (dish.isAvailable) {
+      dish.isAvailable = false;
+    } else {
+      dish.isAvailable = true;
+    }
+
+    console.log(dish.id);
+    this.sub = this.dishService.updateDish(dish).subscribe();
   }
 
 }
