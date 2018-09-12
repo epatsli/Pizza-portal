@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Dish} from '../../models/dish.model';
 import {Subscription} from 'rxjs';
 import {DishesService} from '../../dishes/dishes.service';
+import {AuthService} from '../../login-form/auth.service';
 
 @Component({
   selector: 'app-listdishes',
@@ -19,7 +20,8 @@ export class ListdishesComponent implements OnInit {
   constructor(
     private listdishesService: ListdishesService,
     private router: ActivatedRoute,
-    private dishService: DishesService) { }
+    private dishService: DishesService,
+    public authService: AuthService) { }
 
   @Input()
   prop !: number;

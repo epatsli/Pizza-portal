@@ -1,6 +1,6 @@
 <button [routerLink]="['/listdishes/'] ">Dish list</button>
 <button [routerLink]="['/listorders/'] ">Orders</button>
-<button (click)="authService.isLogin = false" routerLink="/">Log out</button>
+<button (click)="authService.logout()" routerLink="/">Log out</button>
 
 <table>
 

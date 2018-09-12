@@ -47,4 +47,8 @@ export class AuthService implements OnDestroy, CanActivate {
       return true;
     }
   }
+
+  logout() {
+    this.isLogin = false;
+  }
 }

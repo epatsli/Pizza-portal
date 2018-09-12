@@ -1,10 +1,12 @@
-<p>
+<div >
   template works!
-</p>
+
 <button [routerLink]="['/listdishes/'] ">Dish list</button>
 <button [routerLink]="['/listorders/'] ">Orders</button>
-<button (click)="authService.isLogin = false" routerLink="/">Log out</button>
+<button (click)="authService.logout()" routerLink="/">Log out</button>
 
 
 <app-listdishes *ngIf="isDishList"></app-listdishes>
 <app-listorders *ngIf="isOrderList"></app-listorders>
+
+</div>
