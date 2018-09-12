@@ -1,2 +1,24 @@
 
+  <div class="innercontainer">
+
+    <div class="sidebar">
+      <app-shopping-cart></app-shopping-cart>
+    </div>
+
+    <div class="body">
+
+      <div class="buttons">
+        <button class="button" [routerLink]="['/dishes/pizza']" >Pizza</button>
+        <button class="button" [routerLink]="['/dishes/pasta']" >Pasta</button>
+        <button class="button" [routerLink]="['/dishes/drink']" >Drink</button>
+      </div>
+      <app-dishes></app-dishes>
+
+
+
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
 

@@ -88,6 +88,10 @@
         1,
         5
       ],
+      "amountDish": [
+        1,
+        1
+      ],
       "firstName": "Jan",
       "lastName": "Nowak",
       "email": "jan.nowak@gmail.com",
@@ -104,19 +108,16 @@
         2,
         3
       ],
+      "amountDish": [
+        1,
+        2,
+        1
+      ],
       "status": "in progress",
       "firstName": "Iza",
       "lastName": "Bryk",
       "email": "iza.bryk@gmail.com",
       "price": "27.50"
-    },
-    {
-      "dishIds": [
-        1,
-        3
-      ],
-      "status": "accepted",
-      "id": 3
     },
     {
       "firstName": "Olga",
@@ -134,8 +135,15 @@
         7,
         9
       ],
+      "amountDish": [
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
       "status": "in implementation",
-      "id": 4
+      "id": 3
     }
   ],
   "users": [

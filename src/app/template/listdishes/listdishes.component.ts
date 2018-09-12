@@ -1,9 +1,9 @@
 import { Component, OnInit, OnChanges, SimpleChange, Input } from '@angular/core';
 import {ListdishesService} from './listdishes.service';
 import {ActivatedRoute} from '@angular/router';
-import {Dish} from '../models/dish.model';
+import {Dish} from '../../models/dish.model';
 import {Subscription} from 'rxjs';
-import {DishesService} from '../dishes/dishes.service';
+import {DishesService} from '../../dishes/dishes.service';
 
 @Component({
   selector: 'app-listdishes',

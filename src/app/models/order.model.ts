@@ -1,6 +1,7 @@
 export interface Order {
   id?: number;
   dishIds: number[];
+  amountDish: number[];
   firstName: string;
   lastName: string;
   phone: string;

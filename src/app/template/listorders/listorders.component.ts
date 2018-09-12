@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from '../models/order.model';
+import {Order} from '../../models/order.model';
 import {ListordersService} from './listorders.service';
 import {ActivatedRoute} from '@angular/router';
 

@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { DishesComponent } from './dishes/dishes.component';
 import {LoginFormComponent} from './login-form/login-form.component';
 import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
-import {ListdishesComponent} from './listdishes/listdishes.component';
+import {ListdishesComponent} from './template/listdishes/listdishes.component';
 import {DetailsComponent} from './details/details.component';
-import {ListordersComponent} from './listorders/listorders.component';
+import {ListordersComponent} from './template/listorders/listorders.component';
 import {OrderComponent} from './order/order.component';
 import {AddressDetailsComponent} from './address-details/address-details.component';
 import {AuthService} from './login-form/auth.service';
+import {TemplateComponent} from './template/template.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'listorders', component: ListordersComponent, canActivate: [AuthService]},
   { path: 'listorders/order/:id', component: OrderComponent, canActivate: [AuthService]},
   { path: 'listorders/address-details/:id', component: AddressDetailsComponent, canActivate: [AuthService]},
+  { path: 'admin', component: TemplateComponent}
 ];
 
 @NgModule({

@@ -1,9 +1,9 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import {Order} from '../models/order.model';
 import {ActivatedRoute} from '@angular/router';
 import {OrderService} from './order.service';
 import {takeUntil} from 'rxjs/internal/operators';
-import {Observable, Subject} from 'rxjs/index';
+import {Observable, Subject, Subscription} from 'rxjs/index';
 import {DishesService} from '../dishes/dishes.service';
 import {Dish} from '../models/dish.model';
 
@@ -13,11 +13,12 @@ import {Dish} from '../models/dish.model';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-  @Input() order: Order;
+  @Input()
+  order: Order;
   private readonly destroy$ = new Subject();
 
   dishes: Dish[] = [];
-
+  subscription: Subscription;
   constructor(
     private readonly route: ActivatedRoute,
     private readonly orderservice: OrderService,
@@ -63,7 +64,6 @@ export class OrderComponent implements OnInit {
     this.orderservice.updateOrder(this.order).pipe(takeUntil(this.destroy$))
       .subscribe(res => this.order = res);
   }
-
 }
 
 

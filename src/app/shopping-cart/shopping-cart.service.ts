@@ -14,7 +14,7 @@ const httpOptions = {
 export class ShoppingCartService {
   dishes: Dish[] = [];
   totalPrice = 0;
-  isOrderFinished = false;
+  isFinished = false;
 
   constructor(readonly http: HttpClient) { }
 
@@ -62,16 +62,19 @@ export class ShoppingCartService {
   }
 
 
-  saveOrder(orders: Order): Observable<Order> {
+  saveOrder(order: Order): Observable<Order> {
     let dishesIds: number[] = [];
+    let amountDish: number[] = [];
     let i;
+
+    order.dishIds = dishesIds;
+    order.status = 'in implementation';
     for (i = 0; i < this.dishes.length; i++) {
       dishesIds.push(this.dishes[i].id);
+      amountDish.push(this.dishes[i].count);
     }
-    orders.dishIds = dishesIds;
-    orders.status = 'in implementation';
-    this.isOrderFinished = false;
-    return this.http.post<Order>('/api/orders', orders, httpOptions);
+    this.isFinished = false;
+    return this.http.post<Order>('/api/orders', order, httpOptions);
   }
 
   addDishToShoppingcart(dish: Dish) {

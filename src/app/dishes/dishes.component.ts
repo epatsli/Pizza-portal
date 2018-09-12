@@ -16,7 +16,6 @@ export class DishesComponent implements OnInit {
 
   @HostBinding('class.is-open')
   isOpen = true;
-
   constructor(
     private shoppingcartservice: ShoppingCartService,
     private dishesService: DishesService,

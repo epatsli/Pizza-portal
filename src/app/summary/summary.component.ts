@@ -12,6 +12,7 @@ export class SummaryComponent implements OnInit {
   orders: Order = new class implements Order {
     id: number;
     dishIds: number[];
+    amountDish: number[];
     firstName: string;
     lastName: string;
     phone: string;

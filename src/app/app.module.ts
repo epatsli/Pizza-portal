@@ -17,12 +17,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {AuthService} from './login-form/auth.service';
 import { SummaryComponent } from './summary/summary.component';
 import {SummaryService} from './summary/summary.service';
-import { ListdishesComponent } from './listdishes/listdishes.component';
+import { ListdishesComponent } from './template/listdishes/listdishes.component';
 import { DetailsComponent } from './details/details.component';
-import { ListordersComponent } from './listorders/listorders.component';
+import { ListordersComponent } from './template/listorders/listorders.component';
 import { OrderComponent } from './order/order.component';
 import { AddressDetailsComponent } from './address-details/address-details.component';
 import { RoleGuardComponent } from './role-guard/role-guard.component';
+import { TemplateComponent } from './template/template.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { RoleGuardComponent } from './role-guard/role-guard.component';
     ListordersComponent,
     OrderComponent,
     AddressDetailsComponent,
-    RoleGuardComponent
+    RoleGuardComponent,
+    TemplateComponent
   ],
   imports: [
     BrowserModule,
