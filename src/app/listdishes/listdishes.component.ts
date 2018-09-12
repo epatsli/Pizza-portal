@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, SimpleChange, Input } from '@angular/core';
 import {ListdishesService} from './listdishes.service';
 import {ActivatedRoute} from '@angular/router';
-import {Dish} from '../models/dishes.model';
+import {Dish} from '../models/dish.model';
 import {Subscription} from 'rxjs';
 import {DishesService} from '../dishes/dishes.service';
 
@@ -12,7 +12,7 @@ import {DishesService} from '../dishes/dishes.service';
 })
 export class ListdishesComponent implements OnInit {
 
-  dishes: Dish[] = [];
+  dish: Dish[] = [];
   contentEditable = false;
   sub: Subscription ;
 
@@ -31,28 +31,28 @@ export class ListdishesComponent implements OnInit {
   getDishes(): void {
     this.listdishesService.getDishes()
       .subscribe(res => {
-        this.dishes = res;
+        this.dish = res;
       });
   }
 
   getPizza(): void {
     this.listdishesService.getPizza()
       .subscribe(res => {
-        this.dishes = res;
+        this.dish = res;
       });
   }
 
   getPasta(): void {
     this.listdishesService.getPasta()
       .subscribe(res => {
-        this.dishes = res;
+        this.dish = res;
       });
   }
 
   getDrinks(): void {
     this.listdishesService.getDrinks()
       .subscribe(res => {
-        this.dishes = res;
+        this.dish = res;
       });
   }
 

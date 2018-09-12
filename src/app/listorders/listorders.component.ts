@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Orders} from '../models/orders.model';
+import {Order} from '../models/order.model';
 import {ListordersService} from './listorders.service';
 import {ActivatedRoute} from '@angular/router';
 
@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./listorders.component.scss']
 })
 export class ListordersComponent implements OnInit {
-  orders: Orders[] = [];
+  orders: Order[] = [];
 
   constructor(private listordersService: ListordersService) { }
 

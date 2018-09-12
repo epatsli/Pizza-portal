@@ -60,15 +60,15 @@ import { RoleGuardComponent } from './role-guard/role-guard.component';
         component: ShoppingCartComponent
       },
       {
-        path: 'dishes/pizza',
+        path: 'dish/pizza',
         component: DishesComponent
       },
       {
-        path: 'dishes/pasta',
+        path: 'dish/pasta',
         component: DishesComponent
       },
       {
-        path: 'dishes/drink',
+        path: 'dish/drink',
         component: DishesComponent
       }
     ]),

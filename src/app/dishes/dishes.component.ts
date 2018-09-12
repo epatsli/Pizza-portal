@@ -1,6 +1,6 @@
 import {Component, OnInit, HostBinding} from '@angular/core';
 import {DishesService} from './dishes.service';
-import {Dish} from '../models/dishes.model';
+import {Dish} from '../models/dish.model';
 import {ActivatedRoute} from '@angular/router';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 
@@ -11,7 +11,7 @@ import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
   styleUrls: ['./dishes.component.scss']
 })
 export class DishesComponent implements OnInit {
-  dishes: Dish[] = [];
+  dish: Dish[] = [];
   value = 0;
 
   @HostBinding('class.is-open')
@@ -28,7 +28,6 @@ export class DishesComponent implements OnInit {
     this.dishesService.change.subscribe(isOpen => {
       this.isOpen = isOpen;
     });
-    // this.getDishes();
 
     this.router.paramMap.subscribe(params => {
       const type = params.get('type');
@@ -48,28 +47,28 @@ export class DishesComponent implements OnInit {
   getDishes(): void {
     this.dishesService.getDishes()
       .subscribe(res => {
-        this.dishes = res;
+        this.dish = res;
       });
   }
 
   getPizza(): void {
     this.dishesService.getPizza()
       .subscribe(res => {
-        this.dishes = res;
+        this.dish = res;
       });
   }
 
   getPasta(): void {
     this.dishesService.getPasta()
       .subscribe(res => {
-        this.dishes = res;
+        this.dish = res;
       });
   }
 
   getDrinks(): void {
     this.dishesService.getDrinks()
       .subscribe(res => {
-        this.dishes = res;
+        this.dish = res;
       });
   }
   addDishToOrder(dish: Dish) {

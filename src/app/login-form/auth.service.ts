@@ -2,7 +2,7 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Users} from '../models/users.model';
+import {User} from '../models/user.model';
 import {CanActivate, Router} from '@angular/router';
 
 @Injectable({
@@ -19,8 +19,8 @@ export class AuthService implements OnDestroy, CanActivate {
   }
 
   check(login: string, password: string) {
-    let users: Users[] = [];
-    this.sub = this.http.get<Users[]>('/api/users').pipe(
+    let users: User[] = [];
+    this.sub = this.http.get<User[]>('/api/users').pipe(
       map(x => x.filter(y => y.name === login && y.password === password))
     ).subscribe(res => {
       users = res;

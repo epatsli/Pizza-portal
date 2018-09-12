@@ -1,10 +1,8 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
-import {Dish} from '../models/dishes.model';
+import {Dish} from '../models/dish.model';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {map, takeUntil} from 'rxjs/operators';
-import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
-import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

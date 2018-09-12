@@ -1,8 +1,8 @@
 import { Injectable, Output, EventEmitter  } from '@angular/core';
 import {DishesService} from '../dishes/dishes.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Orders} from '../models/orders.model';
-import {Dish} from '../models/dishes.model';
+import {Order} from '../models/order.model';
+import {Dish} from '../models/dish.model';
 import {Observable} from 'rxjs';
 
 const httpOptions = {

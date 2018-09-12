@@ -1,11 +1,11 @@
 import {Component, Input, OnInit, OnDestroy} from '@angular/core';
-import {Dish} from '../models/dishes.model';
+import {Dish} from '../models/dish.model';
 import {takeUntil} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
 import {DetailsService} from '../details/details.service';
 import {OrderService} from '../order/order.service';
 import {Subject} from 'rxjs';
-import {Orders} from '../models/orders.model';
+import {Order} from '../models/order.model';
 
 @Component({
   selector: 'app-address-details',
@@ -14,8 +14,8 @@ import {Orders} from '../models/orders.model';
 })
 export class AddressDetailsComponent implements OnInit {
   private readonly destroy$ = new Subject();
-  order: Orders;
-  @Input() orders: Orders;
+  order: Order;
+  @Input() orders: Order;
 
   constructor(private readonly route: ActivatedRoute,private readonly orderService: OrderService) { }
 

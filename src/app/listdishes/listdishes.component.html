@@ -9,18 +9,18 @@
     <th>Details:</th>
   </tr>
 
-  <tr *ngFor="let dish of dishes">
-    <td>{{dish.id}}</td>
-    <td>{{dish.type}}</td>
-    <td>{{dish.name}}</td>
-    <td>{{dish.description}}</td>
+  <tr *ngFor="let d of dish">
+    <td>{{d.id}}</td>
+    <td>{{d.type}}</td>
+    <td>{{d.name}}</td>
+    <td>{{d.description}}</td>
 
-    <td class="center"><input type="checkbox" name="available" [checked]="dish.isAvailable" value="dish.isAvailable"
-                              (change)="dish.isAvailable = $event.target.checked" (click)="this.changeWhenIsNotAvailability(dish)"/>
+    <td class="center"><input type="checkbox" name="available" [checked]="d.isAvailable" value="dish.isAvailable"
+                              (change)="d.isAvailable = $event.target.checked" (click)="this.changeWhenIsNotAvailability(d)"/>
     </td>
 
     <td>
-      <button [routerLink]="['details/', dish.id]" class="button">Details</button>
+      <button [routerLink]="['details/', d.id]" class="button">Details</button>
     </td>
   </tr>
 

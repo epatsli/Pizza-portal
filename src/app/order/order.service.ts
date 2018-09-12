@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Orders} from '../models/orders.model';
+import {Order} from '../models/order.model';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -13,12 +13,12 @@ export class OrderService {
   constructor(readonly http: HttpClient) {
   }
 
-  getOrder(id: number): Observable<Orders> {
-    return this.http.get<Orders>(`/api/orders/${id}`);
+  getOrder(id: number): Observable<Order> {
+    return this.http.get<Order>(`/api/orders/${id}`);
   }
 
-  public updateOrder(order: Orders): Observable<Orders> {
+  public updateOrder(order: Order): Observable<Order> {
 
-    return this.http.put<Orders>(`/api/orders/${order.id}`, order);
+    return this.http.put<Order>(`/api/orders/${order.id}`, order);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import {SummaryService} from './summary.service';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
-import {Orders} from '../models/orders.model';
+import {Order} from '../models/order.model';
 
 @Component({
   selector: 'app-summary',
@@ -9,7 +9,7 @@ import {Orders} from '../models/orders.model';
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
-  orders: Orders = new class implements Orders {
+  orders: Order = new class implements Order {
     id: number;
     dishIds: number[];
     firstName: string;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Dish} from '../models/dishes.model';
+import {Dish} from '../models/dish.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Orders} from '../models/orders.model';
+import {Order} from '../models/order.model';
 import {Observable} from 'rxjs';
 
 const httpOptions = {
@@ -27,8 +27,7 @@ export class ShoppingCartService {
     let i;
 
     if (this.dishes.length === 0) {
-      dish.count = 1;
-      this.dishes.push(dish);
+      this.addDishToShoppingcart(dish);
       repeat = true;
     } else {
       repeat = false;
@@ -39,8 +38,7 @@ export class ShoppingCartService {
       }
     }
     if (repeat === false) {
-      dish.count = 1;
-      this.dishes.push(dish);
+      this.addDishToShoppingcart(dish);
     }
     this.totalPrice = parseFloat((this.totalPrice + dish.price * 100 / 100).toFixed(2));
   }
@@ -64,7 +62,7 @@ export class ShoppingCartService {
   }
 
 
-  saveOrder(orders: Orders): Observable<Orders> {
+  saveOrder(orders: Order): Observable<Order> {
     let dishesIds: number[] = [];
     let i;
     for (i = 0; i < this.dishes.length; i++) {
@@ -73,7 +71,12 @@ export class ShoppingCartService {
     orders.dishIds = dishesIds;
     orders.status = 'in implementation';
     this.isOrderFinished = false;
-    return this.http.post<Orders>('/api/orders', orders, httpOptions);
+    return this.http.post<Order>('/api/orders', orders, httpOptions);
+  }
+
+  addDishToShoppingcart(dish: Dish) {
+    dish.count = 1;
+    this.dishes.push(dish);
   }
 }
 

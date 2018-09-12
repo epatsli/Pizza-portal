@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
-import {Dish} from '../models/dishes.model';
+import {Dish} from '../models/dish.model';
 import {DishesService} from '../dishes/dishes.service';
 import {DetailsService} from './details.service';
 import {ActivatedRoute} from '@angular/router';
@@ -12,11 +12,12 @@ import {Subject, Subscription} from 'rxjs/index';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit, OnDestroy {
-  dishes: Dish;
+
   private readonly destroy$ = new Subject();
   sub: Subscription ;
 
-  @Input() dish: Dish;
+  @Input()
+  dish: Dish;
 
   constructor(private detailsService: DetailsService,
               private readonly route: ActivatedRoute,
@@ -27,7 +28,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
     const id = this.route.snapshot.paramMap.get('id');
     this.detailsService.getDish(+id)
       .pipe(takeUntil(this.destroy$))
-      .subscribe(res => this.dishes = res);
+      .subscribe(res => this.dish = res);
   }
 
   ngOnDestroy(): void {

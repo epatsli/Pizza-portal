@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-import {Orders} from '../models/orders.model';
+import {Order} from '../models/order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class ListordersService {
 
   constructor(readonly http: HttpClient) { }
 
-  getOrders(): Observable<Orders[]> {
-    return this.http.get<Orders[]>('/api/orders');
+  getOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>('/api/orders');
   }
 }
 
