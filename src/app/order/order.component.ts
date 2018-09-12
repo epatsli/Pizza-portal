@@ -13,12 +13,10 @@ import {Dish} from '../models/dishes.model';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-  @Input() orders: Orders;
+  @Input() order: Orders;
   private readonly destroy$ = new Subject();
-  order: Orders;
-  dishes: Dish[] = [];
 
-  sampleOrder$;
+  dishes: Dish[] = [];
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -31,7 +29,7 @@ export class OrderComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
 
     this.orderservice.getOrder(+id)
-      .pipe(takeUntil(this.destroy$)).subscribe(res => this.orders = res);
+      .pipe(takeUntil(this.destroy$)).subscribe(res => this.order = res);
 
     // this.sampleOrder$ = this.orderservice.getOrder(+id)
     //   .pipe(takeUntil(this.destroy$));
@@ -76,9 +74,6 @@ export class OrderComponent implements OnInit {
 
   }
 
-  public updatess(): void {
-    this.orderservice.update(this.order);
-  }
   }
 
 

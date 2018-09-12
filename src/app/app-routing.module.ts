@@ -9,6 +9,7 @@ import {ListordersComponent} from './listorders/listorders.component';
 import {OrderComponent} from './order/order.component';
 import {AddressDetailsComponent} from './address-details/address-details.component';
 import {RoleGuardComponent} from './role-guard/role-guard.component';
+import {AuthService} from './login-form/auth.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -18,10 +19,10 @@ const routes: Routes = [
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'summary', component: ShoppingCartComponent },
   { path: 'listdishes', component: ListdishesComponent},
-  { path: 'listdishes/details/:id', component: DetailsComponent,  canActivate: [RoleGuardComponent]},
-  { path: 'listorders', component: ListordersComponent, canActivate: [RoleGuardComponent]},
-  { path: 'listorders/order/:id', component: OrderComponent},
-  { path: 'listorders/address-details/:id', component: AddressDetailsComponent, canActivate: [RoleGuardComponent]},
+  { path: 'listdishes/details/:id', component: DetailsComponent,  canActivate: [AuthService]},
+  { path: 'listorders', component: ListordersComponent, canActivate: [AuthService]},
+  { path: 'listorders/order/:id', component: OrderComponent, canActivate: [AuthService]},
+  { path: 'listorders/address-details/:id', component: AddressDetailsComponent, canActivate: [AuthService]},
 ];
 
 @NgModule({

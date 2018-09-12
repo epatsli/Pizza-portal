@@ -12,8 +12,8 @@
   <tr *ngFor="let order of orders">
     <td>{{order.id}}</td>
     <td>{{order.firstName}} {{order.lastName}}</td>
-    <td><button class = "button" [routerLink]="['order/', order.id]" >Details</button></td>
-    <td><button class = "button" [routerLink]="['address-details/', order.id]" >Details</button></td>
+    <td><button class = "button" [routerLink]="['/listorders/order/', order.id]" >Details</button></td>
+    <td><button class = "button" [routerLink]="['/listorders/address-details/', order.id]" >Details</button></td>
     <td>{{order.status}}</td>
   </tr>
 

@@ -10,21 +10,9 @@ import { Observable } from 'rxjs';
 })
 
 @Injectable()
-export class RoleGuardComponent implements CanActivate {
+export class RoleGuardComponent  {
 
   constructor(private router: Router, private readonly authService: AuthService) { }
-
-  canActivate(): boolean {
-  //  let url: string = state.url;
-    if (!this.authService.isLogin) {
-      this.router.navigate(['/login']);
-      return false;
-    } else {
-      return true;
-    }
-  //  return this.checkLogin(url);
-  }
-
 
   checkLogin(url: string): boolean {
     if (this.authService.isLogin) { return true; }

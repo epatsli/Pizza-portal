@@ -20,12 +20,5 @@ export class OrderService {
   public updateOrder(order: Orders): Observable<Orders> {
 
     return this.http.put<Orders>(`/api/orders/${order.id}`, order);
-    // return this.http.put<Orders>(`/api/orders/` + order.id, order);
-  }
-
-  public update(order: Orders) {
-
-    return this.http.put(`/api/orders/${order.id}`, order);
-    // return this.http.put<Orders>(`/api/orders/` + order.id, order);
   }
 }
