@@ -9,9 +9,13 @@
 
   <div>#Order: {{orders.id}}</div>
 
+  <button (click)="changeStatusToInProgress()">In progress</button>
+  <button (click)="changeStatusToInDelivery()">In delivery</button>
+  <button (click)="changeStatusToDelivered()">Delivered</button>
 
+  <div>{{getDi(orders.dishIds)}} </div>
 
-
+<p>cdcdcdscsdcds</p>
 <tr *ngFor="let dishId of orders.dishIds">
 
   <td>{{getDish(dishId)}} </td>

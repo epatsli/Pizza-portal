@@ -71,7 +71,7 @@ export class ShoppingCartService {
       dishesIds.push(this.dishes[i].id);
     }
     orders.dishIds = dishesIds;
-    orders.status = 'in progress';
+    orders.status = 'in implementation';
     this.isOrderFinished = false;
     return this.http.post<Orders>('/api/orders', orders, httpOptions);
   }

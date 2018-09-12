@@ -2,7 +2,7 @@ import {EventEmitter, Injectable, Output} from '@angular/core';
 import {Dish} from '../models/dishes.model';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {map, takeUntil} from 'rxjs/operators';
 import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 
@@ -50,13 +50,9 @@ export class DishesService {
 
   getDish(id: number): Observable<Dish[]> {
     return this.http.get<Dish[]>('/api/dishes').pipe(
-      map(x => {
-        return x.filter(y => {
-          return y.id;
-        });
-      })
-    );
+      map(x => x.filter(y => y.id === id)));
   }
+
 
   getSomeOtherDish() {
     return 'dish';

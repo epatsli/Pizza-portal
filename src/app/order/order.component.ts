@@ -13,9 +13,10 @@ import {Dish} from '../models/dishes.model';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-  private readonly destroy$ = new Subject();
-  dishes: Dish[] = [];
   @Input() orders: Orders;
+  private readonly destroy$ = new Subject();
+  order: Orders;
+  dishes: Dish[] = [];
 
   sampleOrder$;
 
@@ -44,9 +45,43 @@ export class OrderComponent implements OnInit {
     this.dishService.getDish(id).pipe(takeUntil(this.destroy$))
       .subscribe(res => this.dishes = res);
       }
+
+  public getDi(ids: Dish[] = []) {
+    let i;
+    for (i = 0; i < ids.length; i++) {
+       this.getDish(i);
+    }
+    return this;
   }
 
-  //this.dishService.getSomeOtherDish();
+
+  public changeStatusToInProgress(): void {
+    this.order.status = 'In progress';
+    this.update();
+  }
+
+  public changeStatusToInDelivery(): void {
+    this.order.status = 'In delivery';
+    this.update();
+  }
+
+  public changeStatusToDelivered(): void {
+    this.order.status = 'Delivered';
+    this.update();
+  }
+
+  public update(): void {
+    this.orderservice.updateOrder(this.order).pipe(takeUntil(this.destroy$))
+      .subscribe(res => this.order = res);
+
+  }
+
+  public updatess(): void {
+    this.orderservice.update(this.order);
+  }
+  }
+
+
 
 
 

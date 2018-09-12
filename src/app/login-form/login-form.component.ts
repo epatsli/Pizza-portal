@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {CanActivate, Router} from '@angular/router';
 import {AuthService} from './auth.service';
-import {Users} from '../models/users.model';
 
 @Component({
   selector: 'app-login-form',
@@ -9,7 +8,6 @@ import {Users} from '../models/users.model';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  user: Users[] = [];
   username: string;
   password: string;
   login = false;
@@ -20,17 +18,19 @@ export class LoginFormComponent implements OnInit {
   }
 
   loginUser(event) {
-
     const name = event.target.elements[0].value;
     const password = event.target.elements[1].value;
     if (name === 'admin' && password === 'admin') {
       this.login = true;
       this.router.navigate(['listorders']);
-    }
-    else {
+    } else {
       this.login = false;
       alert('Incorect name or pasword');
     }
+  }
+
+  check() {
+    this.authService.check(this.username, this.password);
   }
 }
 

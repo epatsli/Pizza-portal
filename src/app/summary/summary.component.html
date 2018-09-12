@@ -2,14 +2,14 @@
   Delivery address
 </p>
 
-<form (ngSubmit)="saveOrder()">
-  <p>First name: <input type="text" name="firstname" ></p>
-  <p>Last name: <input type="text" name="lastname"></p>
-  <p>Phone: <input type="text" name="phone"></p>
-  <p>E-mail: <input type="email" name="e-mail"></p>
-  <p>City: <input type="text" name="city"></p>
-  <p>Street: <input type="text" name="street"></p>
-  <p>Flat: <input type="text" name="flat"></p>
-  <p>Floor: <input type="text" name="floor"></p>
+<form (ngSubmit)="saveOrder()" #loginForm="ngForm">
+  <p>First name: <input type="text" name="firstname" [(ngModel)]="orders.firstName"></p>
+  <p>Last name: <input type="text" name="lastname" [(ngModel)]="orders.lastName"></p>
+  <p>Phone: <input type="text" name="phone" [(ngModel)]="orders.phone"></p>
+  <p>E-mail: <input type="email" name="e-mail" [(ngModel)]="orders.email"></p>
+  <p>City: <input type="text" name="city" [(ngModel)]="orders.city"></p>
+  <p>Street: <input type="text" name="street" [(ngModel)]="orders.street"></p>
+  <p>Flat: <input type="text" name="flat" [(ngModel)]="orders.flat"></p>
+  <p>Floor: <input type="text" name="floor" [(ngModel)]="orders.floor"></p>
   <input type="submit" value="Order">
 </form>

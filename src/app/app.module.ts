@@ -22,6 +22,7 @@ import { DetailsComponent } from './details/details.component';
 import { ListordersComponent } from './listorders/listorders.component';
 import { OrderComponent } from './order/order.component';
 import { AddressDetailsComponent } from './address-details/address-details.component';
+import { RoleGuardComponent } from './role-guard/role-guard.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AddressDetailsComponent } from './address-details/address-details.compo
     DetailsComponent,
     ListordersComponent,
     OrderComponent,
-    AddressDetailsComponent
+    AddressDetailsComponent,
+    RoleGuardComponent
   ],
   imports: [
     BrowserModule,
