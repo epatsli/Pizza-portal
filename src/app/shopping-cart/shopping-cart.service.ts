@@ -78,7 +78,6 @@ export class ShoppingCartService {
       amountDish.push(this.dishes[i].count);
     }
     order.price = this.totalPrice;
-    //   this.isFinished = false;
     return this.http.post<Order>('/api/orders', order, httpOptions);
   }
 
@@ -95,5 +94,6 @@ export class ShoppingCartService {
   setIsClick() {
   return this.isClick = true;
   }
+
 }
 

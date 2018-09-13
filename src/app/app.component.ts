@@ -9,8 +9,7 @@ import {DishesService} from './dishes/dishes.service';
 })
 export class AppComponent {
   title = 'my-app';
-
-  constructor(public authService: AuthService, public dishService: DishesService) {
+  constructor(public authService: AuthService) {
   }
 
 }

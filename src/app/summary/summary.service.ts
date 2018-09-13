@@ -25,6 +25,7 @@ export class SummaryService {
   toggle() {
     this.isOpen = !this.isOpen;
     this.change.emit(this.isOpen);
+
     this.dishesService.toggle();
   }
 }

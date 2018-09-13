@@ -1,4 +1,4 @@
-<div *ngIf="authService.isLogin">
+<div *ngIf="authService.isLogin" class="buttons">
   <button class="button" [routerLink]="['/listdishes/'] ">Dish list</button>
   <button class="button" [routerLink]="['/listorders/'] ">Orders</button>
   <button class="button" (click)="authService.logout()" routerLink="/">Logout</button>
