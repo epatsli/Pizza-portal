@@ -9,11 +9,15 @@ import {SummaryService} from '../summary/summary.service';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-
+  isClick = true;
   constructor(public shoppingCartService: ShoppingCartService,
               public summaryService: SummaryService) { }
 
   ngOnInit() {
   }
 
+  hiddenButton() {
+    this.isClick = false;
+    this.summaryService.toggle();
+  }
 }

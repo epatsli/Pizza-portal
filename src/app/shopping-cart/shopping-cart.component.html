@@ -23,7 +23,7 @@
 
 
 <div class="positionButton">
-  <button class="summary" (click)="summaryService.toggle()">Summary</button>
+  <button *ngIf="isClick!=false" class="summary" (click)="hiddenButton()">Summary</button>
 </div>
 
 <div id="show" >

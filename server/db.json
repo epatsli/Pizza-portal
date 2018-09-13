@@ -11,7 +11,7 @@
     {
       "id": 2,
       "name": "Pizza Funghi",
-      "isAvailable": true,
+      "isAvailable": false,
       "description": "Sos, ser, pieczarki",
       "type": "pizza",
       "price": "23.50"
@@ -19,7 +19,7 @@
     {
       "id": 3,
       "name": "Pizza rzeznicka",
-      "isAvailable": false,
+      "isAvailable": true,
       "description": "Sos, ser, pieczarki, kielbasa, szynka",
       "type": "pizza",
       "price": "27.50"
@@ -99,7 +99,7 @@
       "street": "Konwalijska",
       "floor": "2",
       "flat": "18",
-      "status": "in progress",
+      "status": "delivered",
       "price": "27.50"
     },
     {

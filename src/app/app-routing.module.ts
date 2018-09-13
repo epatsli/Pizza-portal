@@ -10,6 +10,7 @@ import {OrderComponent} from './order/order.component';
 import {AddressDetailsComponent} from './address-details/address-details.component';
 import {AuthService} from './login-form/auth.service';
 import {TemplateComponent} from './template/template.component';
+import {SummaryComponent} from './summary/summary.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -17,11 +18,11 @@ const routes: Routes = [
   { path: 'dishes/:type', component: DishesComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
-  { path: 'summary', component: ShoppingCartComponent },
-  { path: 'listdishes', component: ListdishesComponent},
-  { path: 'listdishes/details/:id', component: DetailsComponent},
-  { path: 'listorders', component: ListordersComponent},
-  { path: 'listorders/order/:id', component: OrderComponent},
+  { path: 'shopping-cart/summary', component: SummaryComponent },
+  { path: 'listdishes', component: ListdishesComponent, canActivate: [AuthService]},
+  { path: 'listdishes/details/:id', component: DetailsComponent, canActivate: [AuthService]},
+  { path: 'listorders', component: ListordersComponent, canActivate: [AuthService]},
+  { path: 'listorders/order/:id', component: OrderComponent, canActivate: [AuthService]},
   { path: 'listorders/address-details/:id', component: AddressDetailsComponent, canActivate: [AuthService]},
   { path: 'admin', component: TemplateComponent, canActivate: [AuthService]}
 ];

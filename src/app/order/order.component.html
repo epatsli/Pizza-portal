@@ -1,4 +1,4 @@
-<div *ngIf="order">
+<div *ngIf="order" class = "center">
   <div>#Order: {{order.id}}</div>
 
   <div class="nextTo">
@@ -23,9 +23,9 @@
     </tr>
   </table>
   </div>
-  
+
   <div>Price: {{order.price}} PLN</div>
-</div>
+
 <div> This order is {{order.status}}. </div>
 <div> Change order status: </div>
 
@@ -33,7 +33,7 @@
   <button class = "button" (click)="changeStatusToInDelivery()">In delivery</button>
   <button class = "button" (click)="changeStatusToDelivered()">Delivered</button>
 
-
+</div>
 <div class="rightDiv">
   <a routerLink="/listorders/">Back</a>
 </div>
