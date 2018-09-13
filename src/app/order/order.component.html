@@ -1,32 +1,37 @@
-<pre>
-  {{order | json}}
-</pre>
-
 <div *ngIf="order">
   <div>#Order: {{order.id}}</div>
 
-  <div >
-    <p>Dish: </p>
+  <div class="nextTo">
+    <table>
+      <tr>
+        <td>Dish</td>
+        <td>Price</td>
+      </tr>
     <tr *ngFor=" let d of order.dishIds">
       <td>{{dishes[d-1].name}}</td>
       <td>{{dishes[d-1].price}}</td>
     </tr>
-  </div>
+    </table>
 
-  <div >
-    <p>Amount: </p>
-    <tr *ngFor=" let a of order.amountDish">
-      <td>{{order.amountDish[a-1]}}</td>
+
+  <table >
+    <tr>
+      <td>Amount</td>
     </tr>
+    <tr  *ngFor=" let a of order.amountDish">
+        <td>{{order.amountDish[a-1]}}</td>
+    </tr>
+  </table>
   </div>
+  
   <div>Price: {{order.price}} PLN</div>
 </div>
+<div> This order is {{order.status}}. </div>
+<div> Change order status: </div>
 
-  <button (click)="changeStatusToInProgress()">In progress</button>
-  <button (click)="changeStatusToInDelivery()">In delivery</button>
-  <button (click)="changeStatusToDelivered()">Delivered</button>
-
-
+  <button class = "button" (click)="changeStatusToInProgress()">In progress</button>
+  <button class = "button" (click)="changeStatusToInDelivery()">In delivery</button>
+  <button class = "button" (click)="changeStatusToDelivered()">Delivered</button>
 
 
 <div class="rightDiv">

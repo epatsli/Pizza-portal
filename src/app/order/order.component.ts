@@ -55,17 +55,17 @@ export class OrderComponent implements OnInit {
   }
 
   public changeStatusToInProgress(): void {
-    this.order.status = 'In progress';
+    this.order.status = 'in progress';
     this.update();
   }
 
   public changeStatusToInDelivery(): void {
-    this.order.status = 'In delivery';
+    this.order.status = 'in delivery';
     this.update();
   }
 
   public changeStatusToDelivered(): void {
-    this.order.status = 'Delivered';
+    this.order.status = 'delivered';
     this.update();
   }
 
