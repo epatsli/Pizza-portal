@@ -146,6 +146,17 @@
       "status": "in implementation",
       "id": 3,
       "price": "137.50"
+    },
+    {
+      "dishIds": [
+        1
+      ],
+      "amountDish": [
+        1
+      ],
+      "status": "in implementation",
+      "price": 22,
+      "id": 4
     }
   ],
   "users": [

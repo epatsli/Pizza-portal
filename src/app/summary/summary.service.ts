@@ -27,6 +27,4 @@ export class SummaryService {
     this.change.emit(this.isOpen);
     this.dishesService.toggle();
   }
-
-
 }

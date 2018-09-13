@@ -2,7 +2,6 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import {SummaryService} from './summary.service';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 import {Order} from '../models/order.model';
-import {ActivatedRoute} from '@angular/router';
 import {Router} from '@angular/router';
 
 @Component({
@@ -42,7 +41,8 @@ export class SummaryComponent implements OnInit {
   saveOrder() {
     this.shoppingcartService.saveOrder(this.orders).subscribe(x => alert('Add orders'));
     this.isOpen = false;
-    this.router.navigate(['/dishes']);
-
+    this.router.navigate(['/dishes/pizza']);
+    this.shoppingcartService.cleanShoppingCar();
+    this.shoppingcartService.setIsClick();
   }
 }

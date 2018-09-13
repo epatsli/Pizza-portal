@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Dish} from '../models/dish.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Order} from '../models/order.model';
 import {Observable} from 'rxjs';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Injectable({
@@ -14,9 +14,9 @@ const httpOptions = {
 export class ShoppingCartService {
   dishes: Dish[] = [];
   totalPrice = 0;
-  isFinished = false;
-
-  constructor(readonly http: HttpClient) { }
+  isClick: boolean;
+  constructor(readonly http: HttpClient) {
+  }
 
   getDishes(): Dish[] {
     return this.dishes;
@@ -33,8 +33,9 @@ export class ShoppingCartService {
       repeat = false;
       for (i = 0; i < this.dishes.length; i++) {
         if (this.dishes[i].id === dish.id) {
-        repeat = true;
-        this.dishes[i].count += 1; }
+          repeat = true;
+          this.dishes[i].count += 1;
+        }
       }
       if (repeat === false) {
         this.addDishToShoppingcart(dish);
@@ -77,13 +78,22 @@ export class ShoppingCartService {
       amountDish.push(this.dishes[i].count);
     }
     order.price = this.totalPrice;
- //   this.isFinished = false;
+    //   this.isFinished = false;
     return this.http.post<Order>('/api/orders', order, httpOptions);
   }
 
   addDishToShoppingcart(dish: Dish) {
     dish.count = 1;
     this.dishes.push(dish);
+  }
+
+  cleanShoppingCar() {
+    this.dishes = [];
+    this.totalPrice = 0;
+  }
+
+  setIsClick() {
+  return this.isClick = true;
   }
 }
 
