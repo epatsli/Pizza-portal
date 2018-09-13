@@ -10,6 +10,6 @@ export interface Order {
   street: string;
   flat: string;
   floor: string;
-  price: string;
+  price: number;
   status: string;
 }

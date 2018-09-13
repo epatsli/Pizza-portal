@@ -3,16 +3,7 @@
 </pre>
 
 <div *ngIf="order">
-
-  <p>
-    Orders details
-  </p>
-
   <div>#Order: {{order.id}}</div>
-
-  <button (click)="changeStatusToInProgress()">In progress</button>
-  <button (click)="changeStatusToInDelivery()">In delivery</button>
-  <button (click)="changeStatusToDelivered()">Delivered</button>
 
   <div >
     <p>Dish: </p>
@@ -25,13 +16,17 @@
   <div >
     <p>Amount: </p>
     <tr *ngFor=" let a of order.amountDish">
-      <td>{{order.amountDish[a]}}</td>
+      <td>{{order.amountDish[a-1]}}</td>
     </tr>
   </div>
-
-  <p></p>
-
+  <div>Price: {{order.price}} PLN</div>
 </div>
+
+  <button (click)="changeStatusToInProgress()">In progress</button>
+  <button (click)="changeStatusToInDelivery()">In delivery</button>
+  <button (click)="changeStatusToDelivered()">Delivered</button>
+
+
 
 
 <div class="rightDiv">

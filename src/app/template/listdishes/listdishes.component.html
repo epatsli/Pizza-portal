@@ -10,6 +10,7 @@
     <th>Name:</th>
     <th>Description:</th>
     <th>Availability:</th>
+    <th>Price:</th>
     <th>Details:</th>
   </tr>
 
@@ -22,7 +23,7 @@
     <td class="center"><input type="checkbox" name="available" [checked]="d.isAvailable" value="dish.isAvailable"
                               (change)="d.isAvailable = $event.target.checked" (click)="this.changeWhenIsNotAvailability(d)"/>
     </td>
-
+    <td>{{d.price}}</td>
     <td>
       <button [routerLink]="['details/', d.id]" class="button">Details</button>
     </td>

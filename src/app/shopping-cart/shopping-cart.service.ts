@@ -65,14 +65,18 @@ export class ShoppingCartService {
   saveOrder(order: Order): Observable<Order> {
     let dishesIds: number[] = [];
     let amountDish: number[] = [];
+    let price: number;
     let i;
 
     order.dishIds = dishesIds;
+    order.amountDish = amountDish;
     order.status = 'in implementation';
+
     for (i = 0; i < this.dishes.length; i++) {
       dishesIds.push(this.dishes[i].id);
       amountDish.push(this.dishes[i].count);
     }
+    order.price = this.totalPrice;
  //   this.isFinished = false;
     return this.http.post<Order>('/api/orders', order, httpOptions);
   }
