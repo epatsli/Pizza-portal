@@ -36,9 +36,9 @@ export class ShoppingCartService {
         repeat = true;
         this.dishes[i].count += 1; }
       }
-    }
-    if (repeat === false) {
-      this.addDishToShoppingcart(dish);
+      if (repeat === false) {
+        this.addDishToShoppingcart(dish);
+      }
     }
     this.totalPrice = parseFloat((this.totalPrice + dish.price * 100 / 100).toFixed(2));
   }
@@ -73,7 +73,7 @@ export class ShoppingCartService {
       dishesIds.push(this.dishes[i].id);
       amountDish.push(this.dishes[i].count);
     }
-    this.isFinished = false;
+ //   this.isFinished = false;
     return this.http.post<Order>('/api/orders', order, httpOptions);
   }
 

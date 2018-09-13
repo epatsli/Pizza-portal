@@ -11,6 +11,7 @@ export class DishesService {
 
   isOpen = true;
   @Output() change: EventEmitter<boolean> = new EventEmitter();
+showView = true;
 
   constructor(
     readonly http: HttpClient,
@@ -23,24 +24,28 @@ export class DishesService {
   }
 
   getDishes(): Observable<Dish[]> {
+    this.showView = true;
     return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable))
     );
   }
 
   getPizza(): Observable<Dish[]> {
+    this.showView = false;
     return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'pizza'))
     );
   }
 
   getPasta(): Observable<Dish[]> {
+    this.showView = false;
     return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'spagetti'))
     );
   }
 
   getDrinks(): Observable<Dish[]> {
+    this.showView = false;
     return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'drink'))
     );
@@ -49,6 +54,10 @@ export class DishesService {
   getDish(id: number): Observable<Dish[]> {
     return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.id === id)));
+  }
+
+  getDishe(id: number): Observable<Dish> {
+    return this.http.get<Dish>('/api/dishes');
   }
 
   updateDish(dish: Dish): Observable<Dish> {

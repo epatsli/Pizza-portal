@@ -2,6 +2,8 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import {SummaryService} from './summary.service';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 import {Order} from '../models/order.model';
+import {ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-summary',
@@ -28,7 +30,7 @@ export class SummaryComponent implements OnInit {
   @HostBinding('class.is-open')
   isOpen = false;
 
-  constructor(private summaryService: SummaryService, private shoppingcartService: ShoppingCartService) {
+  constructor(private summaryService: SummaryService, private shoppingcartService: ShoppingCartService, private router: Router) {
   }
 
   ngOnInit() {
@@ -39,5 +41,6 @@ export class SummaryComponent implements OnInit {
 
   saveOrder() {
     this.shoppingcartService.saveOrder(this.orders).subscribe(x => alert('Add orders'));
+    this.router.navigate(['/']);
   }
 }

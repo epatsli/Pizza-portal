@@ -14,6 +14,11 @@ export class ListdishesService {
   getDishes(): Observable<Dish[]> {
     return this.http.get<Dish[]>('/api/dishes');
   }
+
+  getDish(id: number): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes').pipe(
+      map(x => x.filter(y => y.id === id)));
+  }
   getPizza(): Observable<Dish[]> {
     return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.type === 'pizza'))

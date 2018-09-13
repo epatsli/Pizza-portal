@@ -1,7 +1,7 @@
 
   <div class="innercontainer">
 
-    <div class="sidebar">
+    <div class="sidebar" *ngIf="authService.isLogin!=true">
       <app-shopping-cart></app-shopping-cart>
     </div>
 
@@ -12,11 +12,11 @@
         <button class="button" [routerLink]="['/dishes/pasta']" >Pasta</button>
         <button class="button" [routerLink]="['/dishes/drink']" >Drink</button>
       </div>
-      <app-dishes></app-dishes>
+      <div>
+        <app-dishes></app-dishes>
+        <router-outlet></router-outlet>
+      </div>
 
-
-
-      <router-outlet></router-outlet>
     </div>
 
   </div>

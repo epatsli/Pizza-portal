@@ -3,9 +3,10 @@ import {Order} from '../models/order.model';
 import {ActivatedRoute} from '@angular/router';
 import {OrderService} from './order.service';
 import {takeUntil} from 'rxjs/internal/operators';
-import {Observable, Subject, Subscription} from 'rxjs/index';
+import {forkJoin, Observable, Subject, Subscription} from 'rxjs/index';
 import {DishesService} from '../dishes/dishes.service';
 import {Dish} from '../models/dish.model';
+import {ListdishesService} from '../template/listdishes/listdishes.service';
 
 @Component({
   selector: 'app-order',
@@ -15,26 +16,34 @@ import {Dish} from '../models/dish.model';
 export class OrderComponent implements OnInit {
   @Input()
   order: Order;
+  dish: Dish;
   private readonly destroy$ = new Subject();
 
   dishes: Dish[] = [];
   subscription: Subscription;
+
   constructor(
     private readonly route: ActivatedRoute,
     private readonly orderservice: OrderService,
-    private readonly dishService: DishesService) {
+    private readonly listdishService: ListdishesService) {
   }
 
   ngOnInit() {
 
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.orderservice.getOrder(+id)
-      .pipe(takeUntil(this.destroy$)).subscribe(res => this.order = res);
+    this.subscription = forkJoin([this.orderservice.getOrder(+id), this.listdishService.getDishes()]).subscribe(([order, dishes]) => {
+      this.order = order;
+      this.dishes = dishes;
+    });
+
+  //  this.subscription =this.orderservice.getOrder(+id).subscribe(res => {this.order = res; });
+   // this.dishService.getDish(+id).subscribe(res => {this.dishes = res; });
   }
 
+
   public getDish(id: number) {
-    this.dishService.getDish(id);
+    this.listdishService.getDish(id);
   }
 
   public getDi(ids: Dish[] = []) {
@@ -63,6 +72,10 @@ export class OrderComponent implements OnInit {
   public update(): void {
     this.orderservice.updateOrder(this.order).pipe(takeUntil(this.destroy$))
       .subscribe(res => this.order = res);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
 

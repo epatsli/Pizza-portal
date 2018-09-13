@@ -1,12 +1,10 @@
-<div >
-  template works!
+<div *ngIf="authService.isLogin">
+  <button [routerLink]="['/listdishes/'] ">Dish list</button>
+  <button [routerLink]="['/listorders/'] ">Orders</button>
+  <button (click)="authService.logout()" routerLink="/">Logout</button>
 
-<button [routerLink]="['/listdishes/'] ">Dish list</button>
-<button [routerLink]="['/listorders/'] ">Orders</button>
-<button (click)="authService.logout()" routerLink="/">Log out</button>
-
-
-<app-listdishes *ngIf="isDishList"></app-listdishes>
-<app-listorders *ngIf="isOrderList"></app-listorders>
+  <div *ngIf="isDishList"><app-listorders></app-listorders></div>
+  <div *ngIf="isOrderList"><app-listdishes></app-listdishes></div>
 
 </div>
+

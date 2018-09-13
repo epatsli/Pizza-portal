@@ -8,19 +8,14 @@
 
   <div class="innercontainer">
 
-    <div class="sidebar">
+    <div class="sidebar" *ngIf="authService.isLogin!=true">
       <app-shopping-cart></app-shopping-cart>
     </div>
-    <div class="body">
 
-
-
-
-      <app-summary></app-summary>
-
-
+    <div class="body" >
 
       <router-outlet></router-outlet>
+      <app-summary></app-summary>
     </div>
 
 

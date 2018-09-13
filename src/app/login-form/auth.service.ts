@@ -4,6 +4,8 @@ import {Observable, Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {User} from '../models/user.model';
 import {CanActivate, Router} from '@angular/router';
+import {Dish} from '../models/dish.model';
+import {DishesService} from '../dishes/dishes.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +17,7 @@ export class AuthService implements OnDestroy, CanActivate {
   constructor(
     private  http: HttpClient,
     private router: Router,
+    public dishService: DishesService
   ) {
   }
 
@@ -28,7 +31,7 @@ export class AuthService implements OnDestroy, CanActivate {
 
       if (users.length !== 0) {
         this.isLogin = true;
-        this.router.navigate(['listorders']);
+        this.router.navigate(['admin']);
       } else {
         alert('Incorect name or pasword');
       }
@@ -50,5 +53,6 @@ export class AuthService implements OnDestroy, CanActivate {
 
   logout() {
     this.isLogin = false;
+    this.dishService.showView = true;
   }
 }

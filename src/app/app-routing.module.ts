@@ -20,10 +20,10 @@ const routes: Routes = [
   { path: 'summary', component: ShoppingCartComponent },
   { path: 'listdishes', component: ListdishesComponent},
   { path: 'listdishes/details/:id', component: DetailsComponent},
-  { path: 'listorders', component: ListordersComponent, canActivate: [AuthService]},
-  { path: 'listorders/order/:id', component: OrderComponent, canActivate: [AuthService]},
+  { path: 'listorders', component: ListordersComponent},
+  { path: 'listorders/order/:id', component: OrderComponent},
   { path: 'listorders/address-details/:id', component: AddressDetailsComponent, canActivate: [AuthService]},
-  { path: 'admin', component: TemplateComponent}
+  { path: 'admin', component: TemplateComponent, canActivate: [AuthService]}
 ];
 
 @NgModule({

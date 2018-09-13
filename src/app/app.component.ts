@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {AuthService} from './login-form/auth.service';
+import {DishesService} from './dishes/dishes.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'my-app';
 
-  constructor() {
+  constructor(public authService: AuthService, public dishService: DishesService) {
   }
 
 }

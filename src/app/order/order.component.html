@@ -1,11 +1,12 @@
 <pre>
   {{order | json}}
 </pre>
-<div  *ngIf="order">
 
-<p>
-  Orders details
-</p>
+<div *ngIf="order">
+
+  <p>
+    Orders details
+  </p>
 
   <div>#Order: {{order.id}}</div>
 
@@ -13,15 +14,23 @@
   <button (click)="changeStatusToInDelivery()">In delivery</button>
   <button (click)="changeStatusToDelivered()">Delivered</button>
 
-  <div>{{getDi(order.dishIds)}} </div>
+  <div >
+    <p>Dish: </p>
+    <tr *ngFor=" let d of order.dishIds">
+      <td>{{dishes[d-1].name}}</td>
+      <td>{{dishes[d-1].price}}</td>
+    </tr>
+  </div>
 
-<p>cdcdcdscsdcds</p>
-<tr *ngFor="let dishId of order.dishIds">
+  <div >
+    <p>Amount: </p>
+    <tr *ngFor=" let a of order.amountDish">
+      <td>{{order.amountDish[a]}}</td>
+    </tr>
+  </div>
 
-  <td>{{getDish(dishId)}} </td>
+  <p></p>
 
-
-</tr>
 </div>
 
 
