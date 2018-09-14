@@ -52,7 +52,7 @@ export class DishesComponent implements OnInit, OnDestroy {
   }
 
   getPizza(): void {
-    this.subscription = this.dishesService.getPizza()
+   this.subscription = this.dishesService.getPizza()
       .subscribe(res => {
         this.dish = res;
       });

@@ -60,25 +60,91 @@ import {SummaryService} from '../summary/summary.service';
     expect(dishesComponent).toBeTruthy();
   });
 
-  it('should init', fakeAsync(() => {
+
+
+  it('should init with pizza', fakeAsync(() => {
 
     // given
+    const pizzaSpy = spyOn(dishesComponent, 'getPizza');
+    dishesComponent.ngOnInit();
+
+    // when
     params.next(<ParamMap>({
       get: (key: string) => 'pizza'
     }));
-    const getPizzaSpy = spyOn(dishesService, 'getPizza');
-    //   getPizzaSpy.and.returnValue(pizza);
-
-    // when
-    dishesComponent.ngOnInit();
 
     // then
-    tick();
-   // expect(dishesService.getPizza).toHaveBeenCalled();
-    // expect(dishesComponent.getPizza).toHaveBeenCalled();
-     expect(getPizzaSpy).toHaveBeenCalled();
-    // expect(dishesComponent.dish).toBe(pizza);
+    expect(pizzaSpy).toHaveBeenCalled();
   }));
+
+   it('should init with pasta', fakeAsync(() => {
+
+     // given
+     const pastaSpy = spyOn(dishesComponent, 'getPasta');
+     dishesComponent.ngOnInit();
+
+     // when
+     params.next(<ParamMap>({
+       get: (key: string) => 'pasta'
+     }));
+
+     // then
+     expect(pastaSpy).toHaveBeenCalled();
+   }));
+
+   it('should init with drink', fakeAsync(() => {
+
+     // given
+     const drinkSpy = spyOn(dishesComponent, 'getDrinks');
+     dishesComponent.ngOnInit();
+
+     // when
+     params.next(<ParamMap>({
+       get: (key: string) => 'drink'
+     }));
+
+     // then
+     expect(drinkSpy).toHaveBeenCalled();
+   }));
+
+   it('should get list Pizza', fakeAsync(() => {
+
+     // given
+     const getPizzaSpy = spyOn(dishesService, 'getPizza').and.returnValue(of([]));
+
+     // when
+     dishesComponent.getPizza();
+
+     // then
+     expect(getPizzaSpy).toHaveBeenCalled();
+     // expect(dishesComponent.getPizza).toHaveBeenCalled();
+     // expect(getPizzaSpy).toHaveBeenCalled();
+    // expect(dishesComponent.dish).toBe(getPizzaSpy);
+   }));
+
+   it('should get list Pasta', fakeAsync(() => {
+
+     // given
+     const getPastaSpy = spyOn(dishesService, 'getPasta').and.returnValue(of([]));
+
+     // when
+     dishesComponent.getPasta();
+
+     // then
+     expect(getPastaSpy).toHaveBeenCalled();
+   }));
+
+   it('should get list Drink', fakeAsync(() => {
+
+     // given
+     const getDrinkSpy = spyOn(dishesService, 'getDrinks').and.returnValue(of([]));
+
+     // when
+     dishesComponent.getDrinks();
+
+     // then
+     expect(getDrinkSpy).toHaveBeenCalled();
+   }));
 
 });
 
