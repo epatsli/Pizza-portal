@@ -14,7 +14,7 @@ import {SummaryService} from '../summary/summary.service';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 
 
- fdescribe('DishesComponent', () => {
+ describe('DishesComponent', () => {
   let dishesComponent: DishesComponent;
   let shoppingcartservice: ShoppingCartService;
   let fixture: ComponentFixture<DishesComponent>;
@@ -50,6 +50,7 @@ import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
     })
       .compileComponents();
     dishesService = TestBed.get(DishesService);
+    shoppingcartservice = TestBed.get(ShoppingCartService);
   }));
 
   beforeEach(() => {
@@ -149,16 +150,14 @@ import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
    it('should add dish to shopping cart', fakeAsync(() => {
 
      // given
-     const shoppingcartserviceMock = spyOn(shoppingcartservice, 'addDishToOrder');
-     let exampleDish = [<Dish> {id: 1, name: 'pasta', isAvailable: true, description: 'pasta', type: 'pasta', price: 1, count: 0}];
-     console.log('ddddd');
-     console.log(exampleDish);
-     
+     const exampleDish = <Dish>{id: 1, name: 'pasta', isAvailable: true, description: 'pasta', type: 'pasta', price: 1, count: 0};
+     const shoppingcartServiceMock = spyOn(shoppingcartservice, 'addDishToOrder');
+
      // when
      dishesComponent.addDishToOrder(exampleDish);
-
+     console.log('ddddd');
      // then
-     expect(shoppingcartserviceMock).toHaveBeenCalled();
+     expect(shoppingcartServiceMock).toHaveBeenCalled();
    }));
 
 });

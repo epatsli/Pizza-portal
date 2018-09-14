@@ -48,11 +48,10 @@ export class ShoppingCartService {
   }
 
   delete(dish: Dish) {
-    let i;
     if (dish.count > 1) {
       dish.count -= 1;
     } else if (dish.count === 1) {
-      for (i = 0; i < this.dishes.length; i++) {
+      for (let i = 0; i < this.dishes.length; i++) {
         if (this.dishes[i] === dish) {
           this.dishes.splice(i, 1);
         }
@@ -70,13 +69,12 @@ export class ShoppingCartService {
     let dishesIds: number[] = [];
     let amountDish: number[] = [];
     let price: number;
-    let i;
 
     order.dishIds = dishesIds;
     order.amountDish = amountDish;
     order.status = 'in implementation';
 
-    for (i = 0; i < this.dishes.length; i++) {
+    for (let i = 0; i < this.dishes.length; i++) {
       dishesIds.push(this.dishes[i].id);
       amountDish.push(this.dishes[i].count);
     }
