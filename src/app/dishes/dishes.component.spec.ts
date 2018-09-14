@@ -11,10 +11,12 @@ import {of, Subject} from 'rxjs';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SummaryService} from '../summary/summary.service';
+import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 
 
  fdescribe('DishesComponent', () => {
   let dishesComponent: DishesComponent;
+  let shoppingcartservice: ShoppingCartService;
   let fixture: ComponentFixture<DishesComponent>;
   let dishesService: DishesService;
   let params: Subject<Params>;
@@ -59,8 +61,6 @@ import {SummaryService} from '../summary/summary.service';
   it('should create', () => {
     expect(dishesComponent).toBeTruthy();
   });
-
-
 
   it('should init with pizza', fakeAsync(() => {
 
@@ -144,6 +144,21 @@ import {SummaryService} from '../summary/summary.service';
 
      // then
      expect(getDrinkSpy).toHaveBeenCalled();
+   }));
+
+   it('should add dish to shopping cart', fakeAsync(() => {
+
+     // given
+     const shoppingcartserviceMock = spyOn(shoppingcartservice, 'addDishToOrder');
+     let exampleDish = [<Dish> {id: 1, name: 'pasta', isAvailable: true, description: 'pasta', type: 'pasta', price: 1, count: 0}];
+     console.log('ddddd');
+     console.log(exampleDish);
+     
+     // when
+     dishesComponent.addDishToOrder(exampleDish);
+
+     // then
+     expect(shoppingcartserviceMock).toHaveBeenCalled();
    }));
 
 });

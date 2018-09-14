@@ -94,10 +94,6 @@ export class ShoppingCartService {
     this.totalPrice = 0;
   }
 
-  setIsClick() {
-  return this.isClick = true;
-  }
-
   showNameButton() {
     if (this.count === 0) {
       ++this.count;
