@@ -31,6 +31,7 @@ showView = true;
   }
 
   getPizza(): Observable<Dish[]> {
+   console.log('Jestem tutaj');
     this.showView = false;
     return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'pizza'))

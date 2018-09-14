@@ -24,7 +24,8 @@ const routes: Routes = [
   { path: 'listorders', component: ListordersComponent, canActivate: [AuthService]},
   { path: 'listorders/order/:id', component: OrderComponent, canActivate: [AuthService]},
   { path: 'listorders/address-details/:id', component: AddressDetailsComponent, canActivate: [AuthService]},
-  { path: 'admin', component: TemplateComponent, canActivate: [AuthService]}
+  { path: 'admin', component: TemplateComponent, canActivate: [AuthService]},
+  { path: '**', redirectTo: 'dishes' }
 ];
 
 @NgModule({

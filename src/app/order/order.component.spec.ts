@@ -15,7 +15,7 @@ class ActivatedRouteMock {
   };
 }
 
-fdescribe('OrderComponent', () => {
+describe('OrderComponent', () => {
   let component: OrderComponent;
   let fixture: ComponentFixture<OrderComponent>;
 
