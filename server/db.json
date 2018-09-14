@@ -146,6 +146,42 @@
       "status": "in implementation",
       "id": 3,
       "price": "137.50"
+    },
+    {
+      "dishIds": [],
+      "amountDish": [],
+      "status": "in implementation",
+      "price": 0,
+      "id": 4
+    },
+    {
+      "dishIds": [
+        7
+      ],
+      "amountDish": [
+        1
+      ],
+      "status": "in implementation",
+      "price": 4.9,
+      "id": 5
+    },
+    {
+      "dishIds": [
+        7
+      ],
+      "amountDish": [
+        1
+      ],
+      "status": "in implementation",
+      "price": 4.9,
+      "id": 6
+    },
+    {
+      "dishIds": [],
+      "amountDish": [],
+      "status": "in implementation",
+      "price": 0,
+      "id": 7
     }
   ],
   "users": [

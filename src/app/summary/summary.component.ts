@@ -41,8 +41,9 @@ export class SummaryComponent implements OnInit {
   saveOrder() {
     this.shoppingcartService.saveOrder(this.orders).subscribe(x => alert('Add orders'));
     this.isOpen = false;
-    this.router.navigate(['/dishes/pizza']);
+    this.router.navigate(['/dishes']);
     this.shoppingcartService.cleanShoppingCar();
-    this.shoppingcartService.setIsClick();
+    this.summaryService.toggle();
+    this.shoppingcartService.showNameButton();
   }
 }

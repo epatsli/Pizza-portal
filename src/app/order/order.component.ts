@@ -13,7 +13,7 @@ import {ListdishesService} from '../template/listdishes/listdishes.service';
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent implements OnInit, OnDestroy {
   @Input()
   order: Order;
   dish: Dish;
@@ -21,7 +21,6 @@ export class OrderComponent implements OnInit {
 
   dishes: Dish[] = [];
   subscription: Subscription;
-
   constructor(
     private readonly route: ActivatedRoute,
     private readonly orderservice: OrderService,
@@ -36,22 +35,6 @@ export class OrderComponent implements OnInit {
       this.order = order;
       this.dishes = dishes;
     });
-
-  //  this.subscription =this.orderservice.getOrder(+id).subscribe(res => {this.order = res; });
-   // this.dishService.getDish(+id).subscribe(res => {this.dishes = res; });
-  }
-
-
-  public getDish(id: number) {
-    this.listdishService.getDish(id);
-  }
-
-  public getDi(ids: Dish[] = []) {
-    let i;
-    for (i = 0; i < ids.length; i++) {
-      this.getDish(i);
-    }
-    return this;
   }
 
   public changeStatusToInProgress(): void {

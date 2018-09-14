@@ -15,6 +15,9 @@ export class ShoppingCartService {
   dishes: Dish[] = [];
   totalPrice = 0;
   isClick: boolean;
+
+  count = 0;
+  value = 'Summary';
   constructor(readonly http: HttpClient) {
   }
 
@@ -95,5 +98,14 @@ export class ShoppingCartService {
   return this.isClick = true;
   }
 
+  showNameButton() {
+    if (this.count === 0) {
+      ++this.count;
+      return this.value = 'Return';
+    } else if (this.count === 1) {
+      this.count = 0;
+      return this.value = 'Summary';
+    }
+  }
 }
 
