@@ -10,11 +10,10 @@ import {Dish} from '../models/dish.model';
 import {of, Subject} from 'rxjs';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ReactiveFormsModule} from '@angular/forms';
-import {SummaryService} from '../summary/summary.service';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 
 
- describe('DishesComponent', () => {
+ fdescribe('DishesComponent', () => {
   let dishesComponent: DishesComponent;
   let shoppingcartservice: ShoppingCartService;
   let fixture: ComponentFixture<DishesComponent>;
@@ -42,9 +41,7 @@ import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
         {provide: ActivatedRoute, useValue: {paramMap: params}},
         OrderService,
         DishesService,
-        HttpClient,
-        // HttpHandler,
-        //   SummaryService
+        HttpClient
       ],
       imports: [RouterTestingModule, HttpClientTestingModule, HttpClientModule, ReactiveFormsModule]
     })
@@ -62,6 +59,21 @@ import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
   it('should create', () => {
     expect(dishesComponent).toBeTruthy();
   });
+
+   it('should init with list dishes', fakeAsync(() => {
+
+     // given
+     const spy = spyOn(dishesComponent, 'getDishes');
+     dishesComponent.ngOnInit();
+
+     // when
+     params.next(<ParamMap>({
+       get: (key: string) => ''
+     }));
+
+     // then
+     expect(spy).toHaveBeenCalled();
+   }));
 
   it('should init with pizza', fakeAsync(() => {
 
@@ -108,43 +120,52 @@ import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
      expect(drinkSpy).toHaveBeenCalled();
    }));
 
+   it('should get list dishes', fakeAsync(() => {
+
+     // given
+     const spy = spyOn(dishesService, 'getDishes').and.returnValue(of([]));
+
+     // when
+     dishesComponent.getDishes();
+
+     // then
+     expect(spy).toHaveBeenCalled();
+   }));
+
    it('should get list Pizza', fakeAsync(() => {
 
      // given
-     const getPizzaSpy = spyOn(dishesService, 'getPizza').and.returnValue(of([]));
+     const pizzaSpy = spyOn(dishesService, 'getPizza').and.returnValue(of([]));
 
      // when
      dishesComponent.getPizza();
 
      // then
-     expect(getPizzaSpy).toHaveBeenCalled();
-     // expect(dishesComponent.getPizza).toHaveBeenCalled();
-     // expect(getPizzaSpy).toHaveBeenCalled();
-    // expect(dishesComponent.dish).toBe(getPizzaSpy);
+     expect(pizzaSpy).toHaveBeenCalled();
    }));
 
    it('should get list Pasta', fakeAsync(() => {
 
      // given
-     const getPastaSpy = spyOn(dishesService, 'getPasta').and.returnValue(of([]));
+     const pastaSpy = spyOn(dishesService, 'getPasta').and.returnValue(of([]));
 
      // when
      dishesComponent.getPasta();
 
      // then
-     expect(getPastaSpy).toHaveBeenCalled();
+     expect(pastaSpy).toHaveBeenCalled();
    }));
 
    it('should get list Drink', fakeAsync(() => {
 
      // given
-     const getDrinkSpy = spyOn(dishesService, 'getDrinks').and.returnValue(of([]));
+     const drinkSpy = spyOn(dishesService, 'getDrinks').and.returnValue(of([]));
 
      // when
      dishesComponent.getDrinks();
 
      // then
-     expect(getDrinkSpy).toHaveBeenCalled();
+     expect(drinkSpy).toHaveBeenCalled();
    }));
 
    it('should add dish to shopping cart', fakeAsync(() => {
@@ -155,11 +176,10 @@ import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 
      // when
      dishesComponent.addDishToOrder(exampleDish);
-     console.log('ddddd');
+
      // then
      expect(shoppingcartServiceMock).toHaveBeenCalled();
    }));
-
 });
 
 

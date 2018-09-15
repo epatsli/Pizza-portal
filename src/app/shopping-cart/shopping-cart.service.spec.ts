@@ -119,7 +119,21 @@ fdescribe('ShoppingCartService', () => {
   it('should save order', () => {
 
     // given
-    const order: Order = {id: 1, dishIds: [], amountDish: [], status: '', price: 1};
+    const order: Order = {
+      id: 1,
+      dishIds: [],
+      amountDish: [],
+      status: '',
+      price: 1,
+      firstName: '',
+      lastName: '',
+      phone: '',
+      email: '',
+      city: '',
+      street: '',
+      flat: '',
+      floor: ''
+    };
 
     // when
     service.saveOrder(order).subscribe();
