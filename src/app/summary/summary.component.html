@@ -1,6 +1,6 @@
-<p>
-  Delivery address
-</p>
+
+<h4>Delivery address:</h4>
+
 
 <form (ngSubmit)="saveOrder()" #loginForm="ngForm">
   <p>First name: <input type="text" name="firstname" [(ngModel)]="orders.firstName"></p>
@@ -11,5 +11,5 @@
   <p>Street: <input type="text" name="street" [(ngModel)]="orders.street"></p>
   <p>Flat: <input type="text" name="flat" [(ngModel)]="orders.flat"></p>
   <p>Floor: <input type="text" name="floor" [(ngModel)]="orders.floor"></p>
-  <input type="submit" value="Save order">
+  <input type="submit" class="button" value="Save order">
 </form>

@@ -2,8 +2,8 @@
   box-sizing: border-box;
   display: none;
   position: absolute;
-  width: 65%;
-  height: 75%;
+  width: 60%;
+  height: 70%;
   padding: 20px 10px;
   background: #A9A9A9;
   flex-grow: 1;
@@ -18,4 +18,25 @@
   display: block;
 }
 
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #909090;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
 
+.button:hover {background-color: #808080}
+
+.button:active {
+  background-color: #696969;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

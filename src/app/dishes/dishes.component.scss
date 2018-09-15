@@ -5,10 +5,15 @@ table, td, th {
 
 table {
   border-collapse: collapse;
-  width: 100%;
+  width: auto;
 }
 
-th, td {
+th {
+  padding: 15px;
+  background-color: #A9A9A9
+}
+
+td{
   padding: 15px;
 }
 
@@ -73,3 +78,8 @@ th, td {
   display: block;
 }
 
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.centerTable { margin: 0px auto; }
