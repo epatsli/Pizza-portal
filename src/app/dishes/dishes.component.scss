@@ -85,6 +85,8 @@ td{
   margin-right: auto;
 }
 .centers {
-  margin-left: 20%;
-  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140%;
 }

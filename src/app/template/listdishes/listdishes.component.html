@@ -1,10 +1,11 @@
 <div class = "buttons">
-<button class = "button" [routerLink]="['/listdishes/'] ">Dish list</button>
+<button class = "button" [routerLink]="['/listdishes/'] ">Dishes</button>
 <button class = "button" [routerLink]="['/listorders/'] ">Orders</button>
 <button class = "button" (click)="authService.logout()" routerLink="/">Logout</button>
 </div>
-<table>
 
+<div class="centers">
+<table>
   <tr>
     <th>Id:</th>
     <th>Type:</th>
@@ -29,5 +30,5 @@
       <button [routerLink]="['details/', d.id]" class="button">Details</button>
     </td>
   </tr>
-
 </table>
+</div>
