@@ -3,7 +3,7 @@
   display: none;
   position: absolute;
   width: 60%;
-  height: 70%;
+  height: auto;
   padding: 20px 10px;
   background: #A9A9A9;
   flex-grow: 1;
@@ -39,4 +39,8 @@
   background-color: #696969;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+
+.nextTo{
+  display: inline-block;
 }

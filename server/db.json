@@ -6,7 +6,7 @@
       "isAvailable": true,
       "description": "Sos, ser",
       "type": "pizza",
-      "price": "22"
+      "price": "22.00"
     },
     {
       "id": 2,
@@ -30,7 +30,7 @@
       "isAvailable": true,
       "description": "Sos boloński",
       "type": "spagetti",
-      "price": "14"
+      "price": "14.00"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "isAvailable": false,
       "description": "Kawalki kurczaka w sosie pomidorowym",
       "type": "spagetti",
-      "price": "14"
+      "price": "14.00"
     },
     {
       "id": 6,
