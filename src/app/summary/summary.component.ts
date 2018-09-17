@@ -28,6 +28,7 @@ export class SummaryComponent implements OnInit {
 
   @HostBinding('class.is-open')
   isOpen = false;
+  price = 0;
 
   constructor(private summaryService: SummaryService, private shoppingcartService: ShoppingCartService, private router: Router) {
   }
@@ -39,10 +40,25 @@ export class SummaryComponent implements OnInit {
   }
 
   saveOrder() {
-    this.shoppingcartService.saveOrder(this.orders).subscribe(x => alert('Add orders'));
+    if (this.getTotalCost() === 0) {
+      this.prepareView();
+    } else {
+      this.shoppingcartService.saveOrder(this.orders).subscribe(x => alert('Add orders'));
+      this.shoppingcartService.cleanShoppingCar();
+      this.prepareView();
+    }
+  }
+
+  getTotalCost() {
+    if (this.shoppingcartService.getTotalPrice() === 0) {
+      alert('Add dish to shopping-cart!');
+      return 0;
+    }
+  }
+
+  prepareView() {
     this.isOpen = false;
     this.router.navigate(['/dishes']);
-    this.shoppingcartService.cleanShoppingCar();
     this.summaryService.toggle();
     this.shoppingcartService.showNameButton();
   }

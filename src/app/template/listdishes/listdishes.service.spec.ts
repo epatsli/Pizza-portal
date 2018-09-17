@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { ListdishesService } from './listdishes.service';
 
-describe('ListdishesService', () => {
+xdescribe('ListdishesService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [ListdishesService]
