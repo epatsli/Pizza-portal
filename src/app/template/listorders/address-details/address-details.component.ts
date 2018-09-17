@@ -3,7 +3,7 @@ import {takeUntil} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
 import {OrderService} from '../order/order.service';
 import {Subject} from 'rxjs';
-import {Order} from '../models/order.model';
+import {Order} from '../../../models/order.model';
 
 @Component({
   selector: 'app-address-details',

@@ -43,7 +43,7 @@ fdescribe('ShoppingCartService', () => {
     expect(result).toBe(dishes);
   });
 
-  it('should add firt dish to shoppingCart', () => {
+  it('should add first dish to shoppingCart', () => {
 
     // given
     const dishList = [];

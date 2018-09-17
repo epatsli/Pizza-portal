@@ -4,7 +4,7 @@ import { OrderComponent } from './order.component';
 import {ActivatedRoute} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OrderService} from './order.service';
-import {DishesService} from '../dishes/dishes.service';
+import {DishesService} from '../../../dishes/dishes.service';
 import {HttpClient, HttpHandler} from '@angular/common/http';
 
 class ActivatedRouteMock {

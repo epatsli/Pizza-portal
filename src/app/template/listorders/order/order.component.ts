@@ -1,11 +1,11 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
-import {Order} from '../models/order.model';
+import {Order} from '../../../models/order.model';
 import {ActivatedRoute} from '@angular/router';
 import {OrderService} from './order.service';
 import {takeUntil} from 'rxjs/internal/operators';
 import {forkJoin, Subject, Subscription} from 'rxjs/index';
-import {Dish} from '../models/dish.model';
-import {ListdishesService} from '../template/listdishes/listdishes.service';
+import {Dish} from '../../../models/dish.model';
+import {ListdishesService} from '../../listdishes/listdishes.service';
 
 @Component({
   selector: 'app-order',

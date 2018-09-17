@@ -2,7 +2,7 @@ import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/t
 
 import {DishesComponent} from './dishes.component';
 import {ActivatedRoute, ParamMap, Params} from '@angular/router';
-import {OrderService} from '../order/order.service';
+import {OrderService} from '../template/listorders/order/order.service';
 import {DishesService} from './dishes.service';
 import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
 import {RouterTestingModule} from '@angular/router/testing';

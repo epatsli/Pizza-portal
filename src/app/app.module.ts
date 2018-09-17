@@ -15,10 +15,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {SummaryComponent} from './summary/summary.component';
 import {SummaryService} from './summary/summary.service';
 import {ListdishesComponent} from './template/listdishes/listdishes.component';
-import {DetailsComponent} from './details/details.component';
+import {DetailsComponent} from './template/listdishes/details/details.component';
 import {ListordersComponent} from './template/listorders/listorders.component';
-import {OrderComponent} from './order/order.component';
-import {AddressDetailsComponent} from './address-details/address-details.component';
+import {OrderComponent} from './template/listorders/order/order.component';
+import {AddressDetailsComponent} from './template/listorders/address-details/address-details.component';
 import {TemplateComponent} from './template/template.component';
 
 @NgModule({
