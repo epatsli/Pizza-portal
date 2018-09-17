@@ -73,8 +73,5 @@
   <div>Floor: <input type="text" name="floor" [(ngModel)]="orders.floor"></div>
   <br>
 
-  <input type="submit" class="button" value="Save order">
+  <input type="submit" class="button" value="Save order" [disabled]="!loginForm.form.valid">
 </form>
-
-
-

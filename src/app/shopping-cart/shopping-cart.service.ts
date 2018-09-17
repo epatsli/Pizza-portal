@@ -63,7 +63,6 @@ export class ShoppingCartService {
     return this.totalPrice;
   }
 
-
   saveOrder(order: Order): Observable<Order> {
     let dishesIds: number[] = [];
     let amountDish: number[] = [];
