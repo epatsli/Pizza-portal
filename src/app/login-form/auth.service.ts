@@ -1,10 +1,9 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {User} from '../models/user.model';
 import {CanActivate, Router} from '@angular/router';
-import {Dish} from '../models/dish.model';
 import {DishesService} from '../dishes/dishes.service';
 
 @Injectable({

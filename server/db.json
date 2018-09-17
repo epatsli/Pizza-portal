@@ -99,7 +99,7 @@
       "street": "Konwalijska",
       "floor": "2",
       "flat": "18",
-      "status": "in delivery",
+      "status": "delivered",
       "price": "27.50"
     },
     {
@@ -114,7 +114,7 @@
         2,
         1
       ],
-      "status": "in progress",
+      "status": "in delivery",
       "firstName": "Iza",
       "lastName": "Bryk",
       "email": "iza.bryk@gmail.com",
@@ -146,7 +146,7 @@
         4,
         1
       ],
-      "status": "in implementation",
+      "status": "delivered",
       "id": 3,
       "price": "137.50"
     }
