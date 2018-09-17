@@ -1,6 +1,6 @@
 <div class="header">Your order</div>
 
-<table class="center" >
+<table class="center">
 
   <tr>
     <th class="toLeft">Name:</th>
@@ -9,11 +9,11 @@
 
   </tr>
 
-  <tr *ngFor="let dish of shoppingCartService.getDishes()" >
+  <tr *ngFor="let dish of shoppingCartService.getDishes()">
     <td>{{dish.name}}</td>
-    <td class="toRight"> {{dish.count}} </td>
+    <td class="toRight"> {{dish.count}}</td>
     <td class="toRight">{{dish.price}}</td>
-    <button class="buttonDel" (click)="shoppingCartService.delete(dish)"> - </button>
+    <button class="buttonDel" (click)="shoppingCartService.delete(dish)"> -</button>
   </tr>
   <th class="toLeft">Total price:</th>
   <th></th>

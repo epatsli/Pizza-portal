@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Order} from '../../models/order.model';
 import {ListordersService} from './listorders.service';
-import {ActivatedRoute} from '@angular/router';
 import {AuthService} from '../../login-form/auth.service';
 
 @Component({
@@ -12,7 +11,8 @@ import {AuthService} from '../../login-form/auth.service';
 export class ListordersComponent implements OnInit {
   orders: Order[] = [];
 
-  constructor(private listordersService: ListordersService, public authService: AuthService) { }
+  constructor(private listordersService: ListordersService, public authService: AuthService) {
+  }
 
   ngOnInit() {
     this.getOrders();
@@ -21,8 +21,8 @@ export class ListordersComponent implements OnInit {
   getOrders(): void {
     this.listordersService.getOrders()
       .subscribe(res => {
-      this.orders = res;
-    });
+        this.orders = res;
+      });
   }
 
 }

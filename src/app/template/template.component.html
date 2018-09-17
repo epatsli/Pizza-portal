@@ -3,8 +3,12 @@
   <button class="button" [routerLink]="['/listorders/'] ">Orders</button>
   <button class="button" (click)="authService.logout()" routerLink="/">Logout</button>
 
-  <div *ngIf="isDishList"><app-listorders></app-listorders></div>
-  <div *ngIf="isOrderList"><app-listdishes></app-listdishes></div>
+  <div *ngIf="isDishList">
+    <app-listorders></app-listorders>
+  </div>
+  <div *ngIf="isOrderList">
+    <app-listdishes></app-listdishes>
+  </div>
 
 </div>
 

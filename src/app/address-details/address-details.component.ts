@@ -1,8 +1,6 @@
 import {Component, Input, OnInit, OnDestroy} from '@angular/core';
-import {Dish} from '../models/dish.model';
 import {takeUntil} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
-import {DetailsService} from '../details/details.service';
 import {OrderService} from '../order/order.service';
 import {Subject} from 'rxjs';
 import {Order} from '../models/order.model';
@@ -12,12 +10,14 @@ import {Order} from '../models/order.model';
   templateUrl: './address-details.component.html',
   styleUrls: ['./address-details.component.scss']
 })
-export class AddressDetailsComponent implements OnInit {
-  private readonly destroy$ = new Subject();
-  order: Order;
-  @Input() orders: Order;
+export class AddressDetailsComponent implements OnInit, OnDestroy {
 
-  constructor(private readonly route: ActivatedRoute,private readonly orderService: OrderService) { }
+  @Input()
+  order: Order;
+  private readonly destroy$ = new Subject();
+
+  constructor(private readonly route: ActivatedRoute, private readonly orderService: OrderService) {
+  }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');

@@ -2,8 +2,9 @@
 
 
 <form (ngSubmit)="saveOrder()" #loginForm="ngForm">
-  <div >First name: <input type="text" name="firstname" [(ngModel)]="orders.firstName" id="firstName" #firstName="ngModel"
-                        required minlength="3"></div>
+  <div>First name: <input type="text" name="firstname" [(ngModel)]="orders.firstName" id="firstName"
+                          #firstName="ngModel"
+                          required minlength="3"></div>
   <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
     <div *ngIf="firstName.errors.minlength">
       Name must be at least 3 characters long.
@@ -12,9 +13,10 @@
       Name is required.
     </div>
   </div>
-<br>
+  <br>
 
-  <div>Last name: <input type="text" name="lastname" [(ngModel)]="orders.lastName" #lastName="ngModel" required minlength="3"></div>
+  <div>Last name: <input type="text" name="lastname" [(ngModel)]="orders.lastName" #lastName="ngModel" required
+                         minlength="3"></div>
 
   <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
     <div *ngIf="lastName.errors.minlength">
@@ -24,7 +26,7 @@
       Surname is required.
     </div>
   </div>
-<br>
+  <br>
 
   <div>Phone: <input type="text" name="phone" [(ngModel)]="orders.phone" #phone="ngModel" required minlength="9"></div>
   <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
@@ -51,7 +53,8 @@
   </div>
   <br>
 
-  <div>Street: <input type="text" name="street" [(ngModel)]="orders.street" #street="ngModel" required minlength="4"></div>
+  <div>Street: <input type="text" name="street" [(ngModel)]="orders.street" #street="ngModel" required minlength="4">
+  </div>
   <div *ngIf="street.invalid && (street.dirty || street.touched)">
     <div *ngIf="street.errors.minlength">
       Street must be at least 4 characters long.

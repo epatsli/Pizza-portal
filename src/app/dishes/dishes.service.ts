@@ -11,11 +11,9 @@ export class DishesService {
 
   isOpen = true;
   @Output() change: EventEmitter<boolean> = new EventEmitter();
-showView = true;
+  showView = true;
 
-  constructor(
-    readonly http: HttpClient,
-  ) {
+  constructor(readonly http: HttpClient) {
   }
 
   toggle() {
@@ -51,17 +49,7 @@ showView = true;
     );
   }
 
-  getDish(id: number): Observable<Dish[]> {
-    return this.http.get<Dish[]>('/api/dishes').pipe(
-      map(x => x.filter(y => y.id === id)));
-  }
-
-  getDishe(id: number): Observable<Dish> {
-    return this.http.get<Dish>('/api/dishes');
-  }
-
   updateDish(dish: Dish): Observable<Dish> {
-
     return this.http.put<Dish>(`/api/dishes/${dish.id}`, dish);
   }
 

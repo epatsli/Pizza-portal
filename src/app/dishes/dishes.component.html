@@ -1,17 +1,17 @@
 <div class="centers">
   <table>
-  <tr>
-    <th>Name:</th>
-    <th>Description:</th>
-    <th>Price:</th>
-  </tr>
+    <tr>
+      <th>Name:</th>
+      <th>Description:</th>
+      <th>Price:</th>
+    </tr>
 
-  <tr *ngFor="let d of dish">
-    <td>{{d.name}}</td>
-    <td>{{d.description}}</td>
-    <td>{{d.price}}</td>
-    <button  class="buttonAdd" (click)="addDishToOrder(d)" > + </button>
-  </tr>
-</table>
+    <tr *ngFor="let d of dish">
+      <td>{{d.name}}</td>
+      <td>{{d.description}}</td>
+      <td>{{d.price}}</td>
+      <button class="buttonAdd" (click)="addDishToOrder(d)"> +</button>
+    </tr>
+  </table>
 </div>
 

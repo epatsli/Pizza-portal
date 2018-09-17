@@ -14,10 +14,9 @@ const httpOptions = {
 export class ShoppingCartService {
   dishes: Dish[] = [];
   totalPrice = 0;
-  isClick: boolean;
-
   count = 0;
   value = 'Summary';
+
   constructor(readonly http: HttpClient) {
   }
 
@@ -68,7 +67,6 @@ export class ShoppingCartService {
   saveOrder(order: Order): Observable<Order> {
     let dishesIds: number[] = [];
     let amountDish: number[] = [];
-    let price: number;
 
     order.dishIds = dishesIds;
     order.amountDish = amountDish;

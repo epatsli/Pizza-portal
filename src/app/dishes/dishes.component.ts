@@ -5,7 +5,6 @@ import {ActivatedRoute} from '@angular/router';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 import {Subscription} from 'rxjs';
 
-
 @Component({
   selector: 'app-dishes',
   templateUrl: './dishes.component.html',
@@ -17,11 +16,12 @@ export class DishesComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   @HostBinding('class.is-open')
   isOpen = true;
+
   constructor(
     private shoppingcartservice: ShoppingCartService,
     private dishesService: DishesService,
-    private router: ActivatedRoute,
-  ) {}
+    private router: ActivatedRoute) {
+  }
 
   ngOnInit() {
 
@@ -52,7 +52,7 @@ export class DishesComponent implements OnInit, OnDestroy {
   }
 
   getPizza(): void {
-   this.subscription = this.dishesService.getPizza()
+    this.subscription = this.dishesService.getPizza()
       .subscribe(res => {
         this.dish = res;
       });
@@ -71,6 +71,7 @@ export class DishesComponent implements OnInit, OnDestroy {
         this.dish = res;
       });
   }
+
   addDishToOrder(dish: Dish) {
     this.value++;
     this.shoppingcartservice.addDishToOrder(dish);

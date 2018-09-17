@@ -1,5 +1,4 @@
-import {TestBed, inject, async, ComponentFixture} from '@angular/core/testing';
-
+import {TestBed, async, ComponentFixture} from '@angular/core/testing';
 import {ShoppingCartService} from './shopping-cart.service';
 import {ShoppingCartComponent} from './shopping-cart.component';
 import {Dish} from '../models/dish.model';
@@ -73,7 +72,7 @@ fdescribe('ShoppingCartService', () => {
     expect(service.dishes.length).toBe(2);
   });
 
-  it('should countDish and return 2', () => {
+  it('should count Dish and return 2', () => {
 
     // given
     const dishOne: Dish = {id: 3, name: 'pasta', isAvailable: true, description: 'pasta', type: 'pasta', price: 1, count: 0};
@@ -88,7 +87,7 @@ fdescribe('ShoppingCartService', () => {
     expect(service.dishes.length).toBe(2);
   });
 
-  it('should delete from shoppingCart', () => {
+  it('should delete dish from shoppingCart', () => {
 
     // given
     const dishOne: Dish = {id: 3, name: 'pasta', isAvailable: true, description: 'pasta', type: 'pasta', price: 1, count: 1};
@@ -173,7 +172,7 @@ fdescribe('ShoppingCartService', () => {
     expect(service.totalPrice).toBe(0);
   });
 
-  it('should show name button', () => {
+  it('should show name return button', () => {
 
     // given
     service.count = 1;
@@ -185,7 +184,7 @@ fdescribe('ShoppingCartService', () => {
     expect(service.showNameButton()).toBe('Return');
   });
 
-  it('should show name button', () => {
+  it('should show name summary button', () => {
 
     // given
     service.count = 0;

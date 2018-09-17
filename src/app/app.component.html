@@ -12,16 +12,16 @@
       <app-shopping-cart></app-shopping-cart>
     </div>
 
-    <div class="body" >
+    <div class="body">
       <app-summary></app-summary>
       <div *ngIf="authService.isLogin!=true" class="buttons">
-        <button class="button" [routerLink]="['/dishes/pizza']" >Pizza</button>
-        <button class="button" [routerLink]="['/dishes/pasta']" >Pasta</button>
-        <button class="button" [routerLink]="['/dishes/drink']" >Drink</button>
+        <button class="button" [routerLink]="['/dishes/pizza']">Pizza</button>
+        <button class="button" [routerLink]="['/dishes/pasta']">Pasta</button>
+        <button class="button" [routerLink]="['/dishes/drink']">Drink</button>
 
       </div>
 
-     <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

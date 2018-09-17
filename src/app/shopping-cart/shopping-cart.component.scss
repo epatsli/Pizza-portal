@@ -1,4 +1,4 @@
-.header{
+.header {
   display: flex;
   font-family: 'Permanent Marker', cursive;
   font-weight: bold;
@@ -12,13 +12,13 @@
   text-align: center;
 }
 
-.title{
+.title {
   display: flex;
   align-items: center;
   font-family: 'Permanent Marker', cursive;
 }
 
-.summary{
+.summary {
   padding: 15px 25px;
   font-size: 24px;
   font-family: 'Permanent Marker', cursive;
@@ -35,6 +35,7 @@
   align-items: flex-start;
   margin: 8%;
 }
+
 .summary:hover {
   background-color: #3e8e41
 }
@@ -45,13 +46,12 @@
   transform: translateY(4px);
 }
 
-.positionButton{
+.positionButton {
   display: flex;
   align-self: center;
   flex-direction: column;
   align-items: flex-start;
 }
-
 
 .buttonDel {
   background-color: #FF0000;
@@ -64,7 +64,10 @@
 
   width: 30px;
 }
-.buttonDel:hover {background-color: #DC143C}
+
+.buttonDel:hover {
+  background-color: #DC143C
+}
 
 .buttonDel:active {
   background-color: #DC143C;
@@ -75,9 +78,11 @@
 #content {
   display: none;
 }
+
 #show:target #content {
   display: inline-block;
 }
+
 #show:target #open {
   display: none;
 }
@@ -86,7 +91,7 @@
   text-align: right;
 }
 
-.toLeft{
+.toLeft {
   text-align: left;
 }
 

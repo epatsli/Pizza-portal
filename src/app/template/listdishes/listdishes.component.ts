@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChange, Input } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {ListdishesService} from './listdishes.service';
 import {ActivatedRoute} from '@angular/router';
 import {Dish} from '../../models/dish.model';
@@ -14,20 +14,20 @@ import {AuthService} from '../../login-form/auth.service';
 export class ListdishesComponent implements OnInit {
 
   dish: Dish[] = [];
-  contentEditable = false;
-  sub: Subscription ;
+  sub: Subscription;
 
   constructor(
     private listdishesService: ListdishesService,
     private router: ActivatedRoute,
     private dishService: DishesService,
-    public authService: AuthService) { }
+    public authService: AuthService) {
+  }
 
   @Input()
   prop !: number;
 
   ngOnInit() {
-        this.getDishes();
+    this.getDishes();
   }
 
   getDishes(): void {
@@ -35,34 +35,6 @@ export class ListdishesComponent implements OnInit {
       .subscribe(res => {
         this.dish = res;
       });
-  }
-
-  getPizza(): void {
-    this.listdishesService.getPizza()
-      .subscribe(res => {
-        this.dish = res;
-      });
-  }
-
-  getPasta(): void {
-    this.listdishesService.getPasta()
-      .subscribe(res => {
-        this.dish = res;
-      });
-  }
-
-  getDrinks(): void {
-    this.listdishesService.getDrinks()
-      .subscribe(res => {
-        this.dish = res;
-      });
-  }
-
-  toggleVisibility(event) {
-
-    if ( event.target.checked ) {
-      this.contentEditable = true;
-    }
   }
 
   changeWhenIsNotAvailability(dish: Dish): void {

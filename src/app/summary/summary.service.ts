@@ -1,12 +1,10 @@
-import { Injectable, Output, EventEmitter  } from '@angular/core';
+import {Injectable, Output, EventEmitter} from '@angular/core';
 import {DishesService} from '../dishes/dishes.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Order} from '../models/order.model';
 import {Dish} from '../models/dish.model';
-import {Observable} from 'rxjs';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Injectable({
@@ -20,7 +18,8 @@ export class SummaryService {
   @Output() change: EventEmitter<boolean> = new EventEmitter();
   dishes: Dish[] = [];
 
-  constructor(readonly http: HttpClient, public dishesService: DishesService) { }
+  constructor(readonly http: HttpClient, public dishesService: DishesService) {
+  }
 
   toggle() {
     this.isOpen = !this.isOpen;

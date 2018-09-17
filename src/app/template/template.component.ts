@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../login-form/auth.service';
 
 @Component({
@@ -10,23 +9,11 @@ import {AuthService} from '../login-form/auth.service';
 export class TemplateComponent implements OnInit {
   isDishList = false;
   isOrderList = false;
-  constructor(public authService: AuthService, private router: Router) { }
+
+  constructor(public authService: AuthService) {
+  }
 
   ngOnInit() {
-  }
-
-  showListOrder() {
-    this.isDishList = false;
-    this.isOrderList = true;
-    this.router.navigate(['listorders']);
-  }
-
-  showListDish() {
-    this.isDishList = true;
-    this.isOrderList = false;
-    alert(this.isDishList);
-    alert(this.isOrderList);
-    this.router.navigate(['listdishes']);
   }
 
 }

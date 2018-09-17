@@ -13,11 +13,11 @@ import {Subject, Subscription} from 'rxjs/index';
 })
 export class DetailsComponent implements OnInit, OnDestroy {
 
-  private readonly destroy$ = new Subject();
-  sub: Subscription ;
-
   @Input()
   dish: Dish;
+
+  private readonly destroy$ = new Subject();
+  sub: Subscription;
 
   constructor(private detailsService: DetailsService,
               private readonly route: ActivatedRoute,

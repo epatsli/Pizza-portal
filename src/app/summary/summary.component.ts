@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {SummaryService} from './summary.service';
 import {ShoppingCartService} from '../shopping-cart/shopping-cart.service';
 import {Order} from '../models/order.model';
@@ -24,7 +24,7 @@ export class SummaryComponent implements OnInit {
     floor: string;
     status: string;
     price: number;
-  }
+  };
 
   @HostBinding('class.is-open')
   isOpen = false;

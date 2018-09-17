@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ShoppingCartService} from './shopping-cart.service';
 import {SummaryService} from '../summary/summary.service';
 import {v} from '@angular/core/src/render3';
@@ -13,7 +13,8 @@ import {element} from 'protractor';
 export class ShoppingCartComponent implements OnInit {
 
   constructor(public shoppingCartService: ShoppingCartService,
-              public summaryService: SummaryService) { }
+              public summaryService: SummaryService) {
+  }
 
   ngOnInit() {
   }

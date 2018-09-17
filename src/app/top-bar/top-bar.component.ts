@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../login-form/auth.service';
 
 @Component({
@@ -8,7 +8,8 @@ import {AuthService} from '../login-form/auth.service';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+  }
 
   ngOnInit() {
   }
