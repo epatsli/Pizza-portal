@@ -69,7 +69,7 @@ export class ShoppingCartService {
 
     order.dishIds = dishesIds;
     order.amountDish = amountDish;
-    order.status = '\n' + 'waiting for implementation';
+    order.status = 'waiting for implementation';
 
     for (let i = 0; i < this.dishes.length; i++) {
       dishesIds.push(this.dishes[i].id);

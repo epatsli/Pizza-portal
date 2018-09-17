@@ -43,7 +43,7 @@ export class SummaryComponent implements OnInit {
     if (this.getTotalCost() === 0) {
       this.prepareView();
     } else {
-      this.shoppingcartService.saveOrder(this.orders).subscribe(x => alert('Add orders'));
+      this.shoppingcartService.saveOrder(this.orders).subscribe(x => alert('Order was accepted for execution.'));
       this.shoppingcartService.cleanShoppingCar();
       this.prepareView();
     }
