@@ -3,15 +3,16 @@
     <h3>#{{dish.id}}</h3>
     <h2>{{dish.name}}</h2>
     <h4>{{dish.description}}</h4>
-    <div><input type="checkbox" name="available" [checked]="dish.isAvailable" value="dish.isAvailable"
-                (change)="dish.isAvailable = $event.target.checked" (click)="this.changeAfterClick(dish)"/> <h4>
-      {{dish.isAvailable}}</h4></div>
-
+    <div class="ava">
+      <div>Available:</div>
+      <div><input type="checkbox" name="available" [checked]="dish.isAvailable" value="dish.isAvailable"
+                  (change)="dish.isAvailable = $event.target.checked" (click)="this.changeAfterClick(dish)"/></div>
+      <div>{{dish.isAvailable}}</div>
+    </div>
     <h4 class=" right"> Price: {{dish.price}} PLN</h4>
   </div>
 </div>
 <div class="rightDiv">
   <a routerLink="/listdishes/">Back</a>
 </div>
-
 
